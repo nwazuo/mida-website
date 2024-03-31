@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+
+  /* use to contain content that doesn't need to stretch across screen */
+  .c-container {
+    @apply max-w-[1600px] px-4 md:px-5 lg:px-24 xl:px-40 
+  }
+}
