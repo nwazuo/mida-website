@@ -3,6 +3,6 @@ export default function IndexPage(
 ) {
 
   return (
-    <h1>Hello world</h1>
+    <h1 className="font-primary text-3xl">Hello world</h1>
   )
 }
