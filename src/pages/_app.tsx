@@ -35,6 +35,7 @@ export default function App({
           :root {
             --font-primary: ${primaryFontFamily.style.fontFamily};
           }
+          .init-invisible{visibility:hidden}
         `}
       </style>
       <ChakraProvider theme={theme}>
@@ -46,6 +47,9 @@ export default function App({
         <Component {...pageProps} />
       )}
       </ChakraProvider>
+      <noscript>
+        <style>{`.init-invisible{visibility:visible}`}</style>
+      </noscript>
     </>
   )
 }

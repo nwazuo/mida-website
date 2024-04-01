@@ -27,12 +27,14 @@ export default function Header(
           animate={{
             opacity: [0, 1],
             y: [10, 0],
+            visibility: ["visible"],
           }}
         // @ts-ignore
           transition={{
             delay: 0.2,
             ease: "easeInOut",
           }}
+          className="init-invisible"
         >
           <Image
             src='/images/mida-logo.svg'
@@ -86,7 +88,7 @@ export default function Header(
                     <Link
                       key={link.text}
                       href={link.href}
-                      className="text-white text-xl flex items-center"
+                      className="init-invisible text-white text-xl flex items-center"
                       animate={{ x: [-30, 0], opacity: [0, 1] }}
 
                       // @ts-ignore
@@ -111,10 +113,11 @@ export default function Header(
             <Link
               key={link.text}
               href={link.href}
-              className="text-base flex items-center text-black"
+              className="init-invisible text-base flex items-center text-black"
               animate={{
                 y: [10, 0],
                 opacity: [0, 1],
+                visibility: "visible",
 
               }}
               // @ts-ignore
