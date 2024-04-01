@@ -28,6 +28,7 @@ export default function Header(
             opacity: [0, 1],
             y: [10, 0],
           }}
+        // @ts-ignore
           transition={{
             delay: 0.2,
             ease: "easeInOut",
@@ -87,6 +88,8 @@ export default function Header(
                       href={link.href}
                       className="text-white text-xl flex items-center"
                       animate={{ x: [-30, 0], opacity: [0, 1] }}
+
+                      // @ts-ignore
                       transition={{
                         delay: index * 0.1,
                         duration: 0.3,
@@ -114,6 +117,7 @@ export default function Header(
                 opacity: [0, 1],
 
               }}
+              // @ts-ignore
               transition={{
                 delay: i * 0.1,
                 ease: "easeInOut",
