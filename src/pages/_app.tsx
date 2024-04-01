@@ -4,6 +4,10 @@ import type { AppProps } from 'next/app'
 import { Lato } from 'next/font/google'
 import { lazy } from 'react'
 
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from '~/styles/theme.chakra'
+
+
 export interface SharedPageProps {
   draftMode: boolean
   token: string
@@ -33,6 +37,7 @@ export default function App({
           }
         `}
       </style>
+      <ChakraProvider theme={theme}>
       {draftMode ? (
         <PreviewProvider token={token}>
           <Component {...pageProps} />
@@ -40,6 +45,7 @@ export default function App({
       ) : (
         <Component {...pageProps} />
       )}
+      </ChakraProvider>
     </>
   )
 }

@@ -1,5 +1,5 @@
 
-const theme = require('./theme').default
+const theme = require('./src/styles/theme.chakra').sharedThemeValues
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,5 +13,9 @@ module.exports = {
     },
   },
   plugins: [],
+  corePlugins: {
+    preflight: false
+  },
+  important: true
 }
 
