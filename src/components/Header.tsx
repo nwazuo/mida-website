@@ -1,16 +1,14 @@
+import { Link as LinkSource } from '@chakra-ui/next-js'
 import {
   Drawer,
   DrawerBody, DrawerCloseButton, DrawerContent,
   DrawerOverlay,
-  Icon,
   IconButton,
   useDisclosure
 } from "@chakra-ui/react"
-import Image from "next/image";
-import { Link as LinkSource } from '@chakra-ui/next-js'
-import { IoMenuSharp } from "react-icons/io5"
-import { LuChevronRight } from "react-icons/lu"
 import { motion } from 'framer-motion'
+import Image from "next/image";
+import { IoMenuSharp } from "react-icons/io5"
 
 import { navigationLinks } from "~/lib/constants";
 
@@ -88,8 +86,8 @@ export default function Header(
                     <Link
                       key={link.text}
                       href={link.href}
-                      className="init-invisible text-white text-xl flex items-center"
-                      animate={{ x: [-30, 0], opacity: [0, 1] }}
+                      className="text-white text-xl flex items-center"
+                      animate={{ x: [-30, 0], opacity: [0, 1], visibility: "visible" }}
 
                       // @ts-ignore
                       transition={{
@@ -113,12 +111,11 @@ export default function Header(
             <Link
               key={link.text}
               href={link.href}
-              className="init-invisible text-base flex items-center text-black"
+              className="c-sick-hover-effect init-invisible text-xl flex items-center text-black"
               animate={{
                 y: [10, 0],
                 opacity: [0, 1],
                 visibility: "visible",
-
               }}
               // @ts-ignore
               transition={{
