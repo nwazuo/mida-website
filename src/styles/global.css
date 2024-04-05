@@ -8,4 +8,17 @@
   .c-container {
     @apply max-w-[1600px] px-4 md:px-5 lg:px-24 xl:px-40 
   }
+
+  .c-sick-hover-effect {
+    background: linear-gradient(0deg, black, black) no-repeat right bottom / 0 var(--bg-h);
+  transition: background-size 350ms, color 350ms;
+  --bg-h: 100%;
+  text-decoration: none;
+  }
+
+  .c-sick-hover-effect:where(:hover, :focus-visible) {
+    background-size: 100% var(--bg-h);
+    background-position-x: left;
+    color: white
+  }
 }
