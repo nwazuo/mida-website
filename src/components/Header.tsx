@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 import Image from "next/image";
 import { IoMenuSharp } from "react-icons/io5"
 
-import { navigationLinks } from "~/lib/constants";
+import navigationLinks from '~/data/navigationLinks';
 
 const Link = motion(LinkSource)
 
