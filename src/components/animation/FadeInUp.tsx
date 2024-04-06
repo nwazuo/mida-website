@@ -21,7 +21,8 @@ const FadeInUp = (props: Props) => {
       className="init-invisible"
       transition={{
         delay,
-        ease: "easeInOut"
+        ease: [0.61, 1, 0.88, 1],
+        duration: 0.6
       }}
     >
       {children}
