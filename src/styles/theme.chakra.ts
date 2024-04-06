@@ -23,8 +23,12 @@ const theme = extendTheme({
   breakpoints: sharedThemeValues.screens,
   global: {
     body: {
-      fontFamily: sharedThemeValues.fontFamily.primary
+      fontFamily: sharedThemeValues.fontFamily.primary,
+      fontSize: '32px'
     }
+  },
+  fonts: {
+    body: sharedThemeValues.fontFamily.primary
   }
 })
 

@@ -19,7 +19,10 @@ const FadeInUp = (props: Props) => {
       whileInView={{ opacity: 1, y: 0, visibility: "visible" }}
       viewport={{ once: true }}
       className="init-invisible"
-      transition={{ delay }}
+      transition={{
+        delay,
+        ease: "easeInOut"
+      }}
     >
       {children}
     </MotionComponent>

@@ -29,7 +29,6 @@ export default function Header(
           }}
         // @ts-ignore
           transition={{
-            delay: 0.2,
             ease: "easeInOut",
           }}
           className="init-invisible"
