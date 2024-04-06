@@ -12,7 +12,7 @@ import { IoMenuSharp } from "react-icons/io5";
 
 import navigationLinks from '~/data/navigationLinks';
 
-import FadeInUp from './animation/FadeInUp';
+import FadeInUp from '../animation/FadeInUp';
 
 const Link = motion(LinkSource)
 

@@ -13,7 +13,7 @@ export interface SharedPageProps {
   token: string
 }
 
-const PreviewProvider = lazy(() => import('~/components/PreviewProvider'))
+const PreviewProvider = lazy(() => import('~/components/common/PreviewProvider'))
 
 const primaryFontFamily = Lato({
   variable: '--font-lato',
