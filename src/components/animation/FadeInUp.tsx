@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React from 'react';
+import React, { useMemo } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -11,7 +11,9 @@ type Props = {
 const FadeInUp = (props: Props) => {
   const { children, as, delay = 0 } = props
 
-  const MotionComponent = motion<React.HTMLAttributes<HTMLDivElement>>(as || 'div')
+  const MotionComponent = useMemo(() => {
+    return motion<React.HTMLAttributes<HTMLDivElement>>(as || 'div')
+  }, [as])
 
   return (
     <MotionComponent

@@ -9,6 +9,8 @@ type Props = {
   delay?: number
 } & React.HTMLAttributes<HTMLDivElement>
 
+/* TODO: Add in View */
+
 export default function SplitTextAnim(props: Props) {
   const { as, className, delay, ...rest } = props
   const cname = useId().replaceAll(':', '')
