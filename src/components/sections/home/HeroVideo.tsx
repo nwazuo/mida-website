@@ -10,8 +10,8 @@ export default function HeroVideo() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
 
-  const x = useSpring(0);
-  const y = useSpring(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   const hideCursorForSection = (section: HTMLDivElement) => {
     section.addEventListener('mouseover', () => {
