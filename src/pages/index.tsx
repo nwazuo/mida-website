@@ -1,8 +1,10 @@
+import { Link } from "@chakra-ui/next-js";
 import FadeInUp from "~/components/animation/FadeInUp";
 import SplitTextAnim from "~/components/animation/SplitTextAnim";
 import Footer from "~/components/common/Footer";
 import Header from "~/components/common/Header";
 import MidaLink from "~/components/common/MidaLink";
+import GetInTouchBadge from "~/components/sections/home/GetInTouchBadge";
 import HeroVideo from "~/components/sections/home/HeroVideo";
 import homeData from "~/data/home";
 
@@ -18,7 +20,10 @@ export default function IndexPage(
             <MidaLink href="#" className="w-fit text-xl lg:text-3xl text-black font-bold mt-6 lg:mt-10">Start a Project</MidaLink>
           </FadeInUp>
         </div>
+        <div className="relative mb-48">
         <HeroVideo />
+          <GetInTouchBadge />
+        </div>
       </main>
       <Footer />
     </>

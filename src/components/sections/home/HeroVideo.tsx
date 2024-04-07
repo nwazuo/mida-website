@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IoPlaySharp } from "react-icons/io5";
 import { useRef } from "react";
 import { motion, useIsomorphicLayoutEffect, useMotionValue, useSpring } from "framer-motion";
+import { Link } from "@chakra-ui/react";
 
 
 
