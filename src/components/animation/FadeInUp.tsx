@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useMemo } from 'react';
+import { defaultEase } from '~/lib/constants';
 
 type Props = {
   children: React.ReactNode;
@@ -23,7 +24,7 @@ const FadeInUp = (props: Props) => {
       className="init-invisible"
       transition={{
         delay,
-        ease: [0.61, 1, 0.88, 1],
+        ease: defaultEase,
         duration: 0.6
       }}
     >
