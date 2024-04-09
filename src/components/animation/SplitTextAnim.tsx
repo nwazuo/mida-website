@@ -37,6 +37,7 @@ export default function SplitTextAnim(props: Props) {
     <>
       {/* @ts-ignore */}
       <Component
+        // @ts-ignore
         className={cn(cname, 'init-invisible', className)}
         {...rest}
         ref={scope}

@@ -35,7 +35,9 @@ const AboutCarousel = () => {
           key={index}
           className="w-[100%] md:w-[75%] p-8"
         >
-          <p className="text-[36px] font-[700]">{carouselAb[index].body}</p>
+          <p className="text-[25px] md:text-[36px] font-[700]">
+            {carouselAb[index].body}
+          </p>
           <h5 className="text-[36px] mt-10 font-[700]">
             {carouselAb[index].name}
           </h5>
@@ -43,24 +45,24 @@ const AboutCarousel = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex items-left md:items-center justify-start md:justify-between">
+      <div className="flex items-left md:items-center w-full md:w-auto justify-start md:justify-between">
         <button
           disabled={index === 0}
-          className="bg-black disabled:bg-gray-400 size-[80px] disabled:cursor-not-allowed flex items-center justify-center rounded-[50%] mx-4"
+          className="bg-black disabled:bg-gray-400 size-[40px] md:size-[80px] disabled:cursor-not-allowed flex items-center justify-center rounded-[50%] mx-4"
           onClick={() => {
             setIndex((prev) => prev - 1)
           }}
         >
-          <img src="/icons/left-arrow.svg" />
+          <img src="/icons/left-arrow.svg" className="w-[20px] md:w-auto" />
         </button>
         <button
           disabled={index === 2}
-          className="bg-black disabled:bg-gray-400 disabled:cursor-not-allowed size-[80px] flex items-center justify-center rounded-[50%]"
+          className="bg-black disabled:bg-gray-400 disabled:cursor-not-allowed size-[40px] md:size-[80px] flex items-center justify-center rounded-[50%]"
           onClick={() => {
             setIndex((prev) => prev + 1)
           }}
         >
-          <img src="/icons/right-arrow.svg" />
+          <img src="/icons/right-arrow.svg" className="w-[20px] md:w-auto" />
         </button>
       </div>
     </div>

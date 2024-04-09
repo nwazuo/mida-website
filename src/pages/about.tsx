@@ -21,7 +21,9 @@ const About = () => {
         className="flex flex-col text-white text-center items-center justify-center md:px-40 w-full c-container bg-black h-[60vh] mb-[-20px] md:mb-[-100px]"
       >
         <FadeInUp delay={0.11}>
-          <h5 className="text-[#1EA1F6] text-[36px]">About us</h5>
+          <h5 className="text-[#1EA1F6] text-[18px] md:text-[36px]">
+            About us
+          </h5>
         </FadeInUp>
         <FadeInUp delay={0.02}>
           <h3 className="text-[41px] lg:text-[60px] font-[600]">
@@ -54,7 +56,7 @@ const About = () => {
       </FadeInUp>
 
       <div className="bg-white text-[#222222] z-10 pt-[40px] c-container">
-        <p className="text-[32px] p-8 font-[600]">
+        <p className="text-[21px] md:text-[32px] p-8 font-[600]">
           We're a digital product and UX agency in Lagos Nigeria. We major in
           strategy, design, blockchain and development across all platforms. We
           are more than just a digital product and UX agency; we are the
@@ -178,7 +180,7 @@ const CountUpAnimation = ({ initialValue, targetValue, text }) => {
   return (
     <div className="flex flex-col text-center">
       <span className="text-[80px] font-[700]">{count}+</span>
-      <span className="text-[32px] font-[600]">{text}</span>
+      <span className="text-[21px] md:text-[32px] font-[600]">{text}</span>
     </div>
   )
 }

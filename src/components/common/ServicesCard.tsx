@@ -30,7 +30,7 @@ const ServicesCard = ({ index }) => {
           <FadeInUp delay={(i + 1) * 0.3}>
             <div
               style={{ border: '1px solid #FFFFFF' }}
-              className="p-2 rounded-[32px] mr-2 flex items-center justify-center text-center text-[11px]"
+              className="p-2 rounded-[32px] mr-2 flex items-center justify-center text-center text-[8px] md:text-[11px]"
               key={i}
             >
               {s}
