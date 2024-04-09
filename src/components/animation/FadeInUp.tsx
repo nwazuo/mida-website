@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { FC } from 'react'
 
-type Props = {
+interface Props {
   children: React.ReactNode
   as?: keyof JSX.IntrinsicElements
   /* in seconds */
   delay?: number
 }
 
-const FadeInUp = (props: Props) => {
-  const { children, as, delay = 0 } = props
+const FadeInUp: FC<Props> = ({ children, as, delay = 0 }: Props) => {
+  // const { children, as, delay = 0 } = props
 
   const MotionComponent = motion<React.HTMLAttributes<HTMLDivElement>>(
     as || 'div',
