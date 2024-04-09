@@ -3,7 +3,6 @@ import Header from '~/components/common/Header'
 
 import Image from 'next/image'
 import FadeInUp from '~/components/animation/FadeInUp'
-import SplitTextAnim from '~/components/animation/SplitTextAnim'
 import Footer from '~/components/common/Footer'
 
 import { motion } from 'framer-motion'
@@ -102,7 +101,7 @@ const About = () => {
 
         <div className="flex flex-col">
           {[1, 2, 3].map((_, i) => (
-            <ValuesCard index={i} />
+            <ValuesCard index={i} key={i} />
           ))}
         </div>
       </section>
@@ -138,6 +137,7 @@ const About = () => {
 
           {[1, 2, 3, 4, 5, 6].map((s, i) => (
             <div
+              key={i}
               style={{ marginTop: '80px', paddingBottom: '50px' }}
               className="w-full"
             >
