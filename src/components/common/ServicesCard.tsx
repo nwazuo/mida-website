@@ -14,7 +14,7 @@ const ServicesCard = ({ index }) => {
       </FadeInUp>
       <FadeInUp delay={0.215}>
         <p>
-          we understand the power of a strong brand identity in today's
+          We understand the power of a strong brand identity in today's
           competitive landscape. Our branding services are designed to help you
           stand out from the crowd, connect with your audience on a deeper
           level, and drive long-term success for your business.
@@ -27,7 +27,7 @@ const ServicesCard = ({ index }) => {
           'Visual Identity',
           'Brand Experiences',
         ].map((s, i) => (
-          <FadeInUp delay={(i + 1) * 0.3}>
+          <FadeInUp key={i} delay={(i + 1) * 0.3}>
             <div
               style={{ border: '1px solid #FFFFFF' }}
               className="p-2 rounded-[32px] mr-2 flex items-center justify-center text-center text-[8px] md:text-[11px]"
