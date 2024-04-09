@@ -25,7 +25,7 @@ const Services = () => {
         </h5>
 
         {[1, 2, 3, 4, 5, 6].map((s, i) => (
-          <ServiceCard index={i} />
+          <ServiceCard index={i} key={i} />
         ))}
       </section>
 
