@@ -1,26 +1,23 @@
 import React from 'react'
 import FadeInUp from '~/components/animation/FadeInUp'
+import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
+import ServicesCard from '~/components/common/ServicesCard'
 import cn from '~/lib/cn'
 
 const Services = () => {
   return (
     <div>
       <Header variant="white" />
-      <div className="bg-black text-center text-white flex flex-col items-center justify-center c-container h-auto pb-8 md:min-h-[60vh]">
-        <h5 className="text-[32px] text-[#1EA1F6] mb-2">Our services</h5>
-        <h4 className="text-5xl font-[500]">
-          Crafting Digital Transformations.
-        </h4>
-        <p className="text-[#B3B3B3] text-[32px] w-[90%] mt-3">
-          We offer a comprehensive suite of services tailored to propel your
-          brand to new heights in the digital landscape.
-        </p>
-      </div>
+      <Darkheader
+        label="Our services"
+        header="Crafting Digital Transformations."
+        paragraph="We offer a comprehensive suite of services tailored to propel your brand to new heights in the digital landscape."
+      />
 
       <section className="c-container">
-        <h5 className="mt-4 font-[700] w-[95%] py-20 text-[32px]">
+        <h5 className="mt-4 font-[700] w-full md:w-[95%] py-20 text-[32px]">
           We offer a comprehensive suite of services tailored to propel your
           brand to new heights in the digital landscape. Our expertise goes
           beyond mere web development – we are architects of digital
@@ -31,6 +28,29 @@ const Services = () => {
           <ServiceCard index={i} />
         ))}
       </section>
+
+      <section className="c-container bg-black">
+        <div className="mt-5 pt-10">
+          <FadeInUp delay={0.1}>
+            <h5
+              className="pl-3 mt-4 text-[48px] text-white mb-10"
+              style={{ borderLeft: '1px solid #fff' }}
+            >
+              Industries
+            </h5>
+          </FadeInUp>
+
+          {[1, 2, 3, 4, 5, 6].map((s, i) => (
+            <div
+              key={i}
+              style={{ marginTop: '80px', paddingBottom: '50px' }}
+              className="w-full"
+            >
+              <ServicesCard index={i} />
+            </div>
+          ))}
+        </div>
+      </section>
       <Footer />
     </div>
   )
@@ -39,11 +59,14 @@ const Services = () => {
 const ServiceCard = ({ index }) => {
   return (
     <div
-      className={cn('flex items-start justify-between my-20 gap-6', {
-        'flex-row-reverse': (index + 1) % 2 === 0,
-      })}
+      className={cn(
+        'flex flex-col md:flex-row items-start justify-between my-20 gap-6',
+        {
+          'md:flex-row-reverse': (index + 1) % 2 === 0,
+        },
+      )}
     >
-      <div className="w-[45%]">
+      <div className="w-full md:w-[45%]">
         <FadeInUp delay={0.1 * index}>
           <h4 className="text-[40px] font-[700]">Branding</h4>
         </FadeInUp>
@@ -70,7 +93,7 @@ const ServiceCard = ({ index }) => {
           ))}
         </ul>
       </div>
-      <div className="w-[50%]">
+      <div className="w-full md:w-[50%]">
         <FadeInUp delay={0.19 * index}>
           <img src="/images/dummy-service-rectangle.png" />
         </FadeInUp>
