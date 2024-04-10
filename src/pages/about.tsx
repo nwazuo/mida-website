@@ -12,6 +12,31 @@ import AboutCarousel from '~/components/sections/about/AboutCarousel'
 
 const About = () => {
   const NextImage = motion(Image)
+
+  const innerVariant = {
+    hidden: {
+      rotateY: -90,
+    },
+    visible: {
+      rotateY: 0,
+      transition: {
+        type: 'tween',
+        ease: 'easeOut',
+        duration: 0.8,
+        delay: 0.4,
+      },
+    },
+    leave: {
+      rotateY: -90,
+      transition: {
+        type: 'tween',
+        ease: 'easeIn',
+        duration: 0.3,
+        delay: 0.7,
+      },
+    },
+  }
+
   return (
     <div>
       <Header variant="white" />
@@ -40,12 +65,11 @@ const About = () => {
         <div className="c-container">
           <NextImage
             src="/images/about-section-image.png"
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{
-              //   type: 'smooth',
-              duration: 1,
-            }}
+            key="image-animation"
+            variants={innerVariant}
+            exit="leave"
+            initial="hidden"
+            animate="visible"
             width={1600}
             height={933}
             alt="about-section"

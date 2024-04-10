@@ -60,7 +60,10 @@ const Header: FC<IProps> = ({ variant = 'dark' }) => {
           <IconButton
             icon={<IoMenuSharp />}
             aria-label="open drawer menu"
-            className="lg:hidden min-w-[24px] text-[24px] text-black"
+            className={cn('lg:hidden min-w-[24px] text-[24px]', {
+              'text-black': variant === 'dark',
+              'text-white': variant === 'white',
+            })}
             variant="unstyled"
             onClick={onOpen}
           />
