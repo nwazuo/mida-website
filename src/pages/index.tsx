@@ -7,6 +7,8 @@ import Header from "~/components/common/Header";
 import MidaLink from "~/components/common/MidaLink";
 import GetInTouchBadge from "~/components/sections/home/GetInTouchBadge";
 import HeroVideo from "~/components/sections/home/HeroVideo";
+import ServicesListSection from "~/components/sections/home/ServicesListSection";
+import services from "~/data/services";
 
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
@@ -29,10 +31,14 @@ export default function IndexPage(
           <GetInTouchBadge />
         </div>
 
-        <div className="c-container pt-10 pb-12 lg:pb-40">
+        <div className="c-container items-start md:flex md:gap-32 justify-between pt-10 pb-12 lg:pb-40">
           <LeftBorderContainer>
             <SplitTextAnim as="p" className="text-base md:text-xl lg:text-[28px] lg:leading-relaxed font-semibold text-black max-w-[480px] lg:max-w-[660px]">{pageData.section2QuotedText}</SplitTextAnim>
           </LeftBorderContainer>
+
+          <div className="mt-8 md:mt-0 max-w-[595px] md:w-[40%] grow">
+            <ServicesListSection data={pageData.services} />
+          </div>
         </div>
       </main>
       <Footer />
@@ -44,7 +50,8 @@ export function getStaticProps() {
   const pageData = {
     title: "Mida is a leading software development agency dedicated to delivering cutting-edge solutions.",
     cta: "Start A Project",
-    section2QuotedText: "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights."
+    section2QuotedText: "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights.",
+    services
   }
 
   return {

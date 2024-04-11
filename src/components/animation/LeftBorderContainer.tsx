@@ -9,7 +9,7 @@ const LeftBorderContainer = (props: Props) => {
   const { variant, children } = props
 
   return (
-    <div className="relative pl-2 lg:pl-3">
+    <div className="relative pl-2 lg:pl-3.5">
       <motion.div
         className="absolute top-0 left-0 w-0.5 lg:w-1 bg-black"
         whileInView={{ height: '100%' }}
