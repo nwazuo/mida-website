@@ -9,43 +9,153 @@ import { motion } from 'framer-motion'
 import ValuesCard from '~/components/common/ValuesCard'
 import ServicesCard from '~/components/common/ServicesCard'
 import AboutCarousel from '~/components/sections/about/AboutCarousel'
+import Darkheader from '~/components/common/Darkheader'
+import SplitTextAnim from '~/components/animation/SplitTextAnim'
 
 const About = () => {
   const NextImage = motion(Image)
+
+  const innerVariant = {
+    hidden: {
+      rotateY: -90,
+    },
+    visible: {
+      rotateY: 0,
+      transition: {
+        type: 'tween',
+        ease: 'easeOut',
+        duration: 0.8,
+        delay: 0.4,
+      },
+    },
+    leave: {
+      rotateY: -90,
+      transition: {
+        type: 'tween',
+        ease: 'easeIn',
+        duration: 0.3,
+        delay: 0.7,
+      },
+    },
+  }
+
+  const VALUES_DATA = [
+    {
+      header: 'Diversity',
+      paragraph:
+        'MIDA expands beyond employee’s ethnic background, we encourage a diverse culture that celebrate differences and uniqueness.',
+    },
+    {
+      header: 'Impact ',
+      paragraph:
+        'We have built our company culture around finding meaning and making an impact through our work. We also engage our clients on how their work can make positive impact. ',
+    },
+    {
+      header: 'Integrity',
+      paragraph:
+        'Our business is saturated with confidential information, hence our commitment to trust amongst employees and customers as this is essential to the company’s success.',
+    },
+  ]
+
+  const SERVICES_DATA = [
+    {
+      img: '/images/branding-img.png',
+      header: 'Branding',
+      paragraph:
+        'We understand the power of a strong brand identity in todays competitive landscape. Our branding services are designed to help you stand out from the crowd, connect with your audience on a deeper level, and drive long-term success for your business',
+      chips: [
+        'Brand Strategy',
+        'Brand Architecture',
+        'Visual Identity',
+        'Brand Experiences',
+      ],
+    },
+    {
+      img: '/images/ui-img.png',
+      header: 'UI/UX Design',
+      paragraph:
+        'Make a lasting impression with stunning UI/UX design that delights users and enhances usability. Our designers combine creativity with usability principles to craft intuitive interfaces that leave a lasting impression.',
+      chips: [
+        'UX Research',
+        'UX Audit',
+        'UI Design',
+        'Prototyping and Testing',
+        'Motion Design',
+        'Web Design',
+      ],
+    },
+    {
+      img: '/images/webdev-img.png',
+      header: 'Web Development',
+      paragraph:
+        'Elevate your online presence with custom web development solutions tailored to your unique requirements. Whether you need a simple brochure website or a complex web application, we have the expertise to bring your vision to life.',
+      chips: [
+        'Maintenance And Support',
+        'React/Angular',
+        'HTML/CSS/JS',
+        'IOS/Android Native Apps',
+        'Wordpress',
+        'Backend/API Integrations',
+      ],
+    },
+    {
+      img: '/images/cms-img.png',
+      header: 'Content Management Systems (CMS)',
+      paragraph:
+        'Take control of your online content with our custom CMS solutions. Whether youre looking for a WordPress, Drupal, or custom-built CMS, well help you manage and update your website with ease.',
+      chips: ['CMS', 'Wordpress', 'Webflow'],
+    },
+    {
+      img: '/images/blockchain-img.png',
+      header: 'Blockchain',
+      paragraph:
+        'We are completely immersed in the development and design of tokens, NFT marketplaces, Dapps and Dexes to meet the demands of our clients who are full scale or transiting to blockchain.',
+      chips: [
+        'Tokens',
+        'Dapp/Daxes',
+        'NFTs',
+        'Solidity/Rust/Go',
+        'Javascript/Ruby/Python/Go',
+      ],
+    },
+    {
+      img: '/images/seo-img.png',
+      header: 'SEO And Digital Marketing',
+      paragraph:
+        'Increase your online visibility and drive qualified traffic to your website with our SEO and digital marketing services. From keyword research to content optimization, well help you climb the search engine rankings and attract more customers.',
+      chips: [
+        'Brand Strategy',
+        'Brand Architecture',
+        'Visual Identity',
+        'Brand Experiences',
+      ],
+    },
+  ]
+
   return (
     <div>
       <Header variant="dark" />
-      <div
-        style={{ color: 'white !important' }}
-        className="flex flex-col text-white text-center items-center justify-center md:px-40 w-full c-container bg-black h-[60vh] mb-[-20px] md:mb-[-100px]"
-      >
-        <FadeInUp delay={0.11}>
-          <h5 className="text-[#1EA1F6] text-[18px] md:text-[36px]">
-            About us
-          </h5>
-        </FadeInUp>
-        <FadeInUp delay={0.02}>
-          <h3 className="text-[41px] lg:text-[60px] font-[600]">
+      <Darkheader
+        parentClassName="mb-[-50px]"
+        label="About us"
+        header={
+          <>
+            {' '}
             Hey <span className="wave">👋</span>, we're MIDA
-          </h3>
-        </FadeInUp>
-        <FadeInUp delay={0.04}>
-          <p className="text-[#B3B3B3]">
-            We enhance brands by creating elevated digital experiences.
-          </p>
-        </FadeInUp>
-      </div>
+          </>
+        }
+        paragraph="We enhance brands by creating elevated digital experiences."
+      />
 
       <FadeInUp delay={0.03}>
-        <div className="c-container">
+        <div className="c-container mt-[-30px]">
           <NextImage
             src="/images/about-section-image.png"
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{
-              //   type: 'smooth',
-              duration: 1,
-            }}
+            key="image-animation"
+            variants={innerVariant}
+            exit="leave"
+            initial="hidden"
+            animate="visible"
             width={1600}
             height={933}
             alt="about-section"
@@ -55,14 +165,14 @@ const About = () => {
       </FadeInUp>
 
       <div className="bg-white text-[#222222] z-10 pt-[40px] c-container">
-        <p className="text-[21px] md:text-[32px] p-8 font-[600]">
+        <SplitTextAnim className="text-[21px] md:text-[32px] p-8 font-[600]">
           We're a digital product and UX agency in Lagos Nigeria. We major in
           strategy, design, blockchain and development across all platforms. We
           are more than just a digital product and UX agency; we are the
           architects of strategic brilliance, the artists of cutting-edge
           design, and the pioneers of blockchain and development across diverse
           platforms.
-        </p>
+        </SplitTextAnim>
       </div>
 
       <FadeInUp>
@@ -100,8 +210,8 @@ const About = () => {
         </h5>
 
         <div className="flex flex-col">
-          {[1, 2, 3].map((_, i) => (
-            <ValuesCard index={i} key={i} />
+          {VALUES_DATA.map((data, i) => (
+            <ValuesCard index={i} key={i} {...data} />
           ))}
         </div>
       </section>
@@ -135,13 +245,13 @@ const About = () => {
             </h5>
           </FadeInUp>
 
-          {[1, 2, 3, 4, 5, 6].map((s, i) => (
+          {SERVICES_DATA.map((data, i) => (
             <div
               key={i}
               style={{ marginTop: '80px', paddingBottom: '50px' }}
               className="w-full"
             >
-              <ServicesCard index={i} />
+              <ServicesCard index={i} {...data} />
             </div>
           ))}
         </div>

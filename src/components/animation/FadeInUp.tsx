@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import React, { useMemo } from 'react';
 import { defaultEase } from '~/lib/constants';
 
-interface Props {
+type Props = {
   children: React.ReactNode
   as?: keyof JSX.IntrinsicElements
   /* in seconds */
