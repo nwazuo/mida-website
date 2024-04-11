@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import React, { FC } from 'react'
+import React from 'react'
 
-interface Props {
+type Props = {
   children: React.ReactNode
   as?: keyof JSX.IntrinsicElements
   /* in seconds */
@@ -19,7 +19,7 @@ const FadeInUp: FC<Props> = ({ children, as, delay = 0 }: Props) => {
     <MotionComponent
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0, visibility: 'visible' }}
-      // viewport={{ once: true }}
+      viewport={{ once: true }}
       className="init-invisible"
       transition={{
         delay,
