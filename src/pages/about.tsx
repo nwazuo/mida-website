@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Header from '~/components/common/Header'
 
 import Image from 'next/image'
@@ -10,8 +10,10 @@ import ValuesCard from '~/components/common/ValuesCard'
 import ServicesCard from '~/components/common/ServicesCard'
 import AboutCarousel from '~/components/sections/about/AboutCarousel'
 
+import { useMotionValue, useMotionValueEvent, useInView, useAnimate } from 'framer-motion'
+import SplitTextAnim from '~/components/animation/SplitTextAnim'
+
 const About = () => {
-  const NextImage = motion(Image)
   return (
     <div>
       <Header variant="dark" />
@@ -38,53 +40,49 @@ const About = () => {
 
       <FadeInUp delay={0.03}>
         <div className="c-container">
-          <NextImage
-            src="/images/about-section-image.png"
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{
-              //   type: 'smooth',
-              duration: 1,
-            }}
-            width={1600}
-            height={933}
-            alt="about-section"
-            className="rounded-[16px]"
-          />
+          <FadeInUp delay={0.3}>
+            <Image
+              src="/images/about-section-image.png"
+              width={1600}
+              height={933}
+              alt="about-section"
+              className="rounded-[16px]"
+              placeholder="blur"
+              blurDataURL="/images/about-section-image-lqip.png"
+            />
+          </FadeInUp>
+
         </div>
       </FadeInUp>
 
       <div className="bg-white text-[#222222] z-10 pt-[40px] c-container">
-        <p className="text-[21px] md:text-[32px] p-8 font-[600]">
+        <SplitTextAnim as='p' className="text-[21px] md:text-[32px] p-8 font-[600]">
           We're a digital product and UX agency in Lagos Nigeria. We major in
           strategy, design, blockchain and development across all platforms. We
           are more than just a digital product and UX agency; we are the
           architects of strategic brilliance, the artists of cutting-edge
           design, and the pioneers of blockchain and development across diverse
           platforms.
-        </p>
+        </SplitTextAnim>
       </div>
 
       <FadeInUp>
         <div className="bg-[#F4F4F4] c-container flex flex-col md:flex-row items-center justify-between py-12 mt-8">
           <div>
             <CountUpAnimation
-              initialValue={0}
-              targetValue={10}
+              value={10}
               text="Team Members"
             />
           </div>
           <div>
             <CountUpAnimation
-              initialValue={0}
-              targetValue={4}
+              value={4}
               text="Years in Business"
             />
           </div>
           <div>
             <CountUpAnimation
-              initialValue={0}
-              targetValue={40}
+              value={40}
               text="Projects Completed"
             />
           </div>
@@ -156,29 +154,25 @@ const About = () => {
   )
 }
 
-const CountUpAnimation = ({ initialValue, targetValue, text }) => {
-  const [count, setCount] = useState(initialValue)
-  const duration = 1000 // 4 seconds
+const CountUpAnimation = ({ value, text }) => {
+  const [count, setCount] = useState(0);
+  const motionCount = useMotionValue(0)
+  const ref = useRef<HTMLDivElement | null>(null)
+  const inView = useInView(ref, { once: true, amount: 1 })
+  const [_, animate] = useAnimate()
 
   useEffect(() => {
-    let startValue = initialValue
-    const interval = Math.floor(duration / (targetValue - initialValue))
-
-    const counter = setInterval(() => {
-      startValue += 1
-      setCount(startValue)
-      if (startValue >= targetValue) {
-        clearInterval(counter)
-      }
-    }, interval)
-
-    return () => {
-      clearInterval(counter)
+    if (inView) {
+      animate(motionCount, value, { duration: 1, ease: 'easeOut' })
     }
-  }, [targetValue, initialValue])
+  }, [value, motionCount, inView, animate])
+
+  useMotionValueEvent(motionCount, "change", (latest) => {
+    setCount(Math.round(latest))
+  })
 
   return (
-    <div className="flex flex-col text-center">
+    <div className="flex flex-col text-center" ref={ref}>
       <span className="text-[80px] font-[700]">{count}+</span>
       <span className="text-[21px] md:text-[32px] font-[600]">{text}</span>
     </div>
