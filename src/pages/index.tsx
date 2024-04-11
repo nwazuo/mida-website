@@ -1,4 +1,3 @@
-import { Link } from '@chakra-ui/next-js'
 import FadeInUp from '~/components/animation/FadeInUp'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'
 import Footer from '~/components/common/Footer'

@@ -33,6 +33,26 @@ const innerVariant = {
 }
 
 const Partnership = () => {
+  const PARTNERSHIP_DATA = [
+    {
+      img: '/images/expertise.png',
+      header: 'Expertise and Innovation',
+      paragraph:
+        'With years of experience in web development, design, and digital strategy, we bring a wealth of expertise and innovation to the table.',
+    },
+    {
+      img: '/images/collaborative.png',
+      header: 'Collaborative Approach',
+      paragraph:
+        'We believe in working closely with our partners every step of the way. From initial consultation to project delivery and beyond',
+    },
+    {
+      img: '/images/strategic.png',
+      header: 'Strategic Support and Guidance',
+      paragraph:
+        'As your strategic partner, were committed to your long-term success. Well provide ongoing support and guidance to help you navigate the digital landscape.',
+    },
+  ]
   return (
     <div>
       <Header variant="white" />
@@ -71,7 +91,7 @@ const Partnership = () => {
         </SplitTextAnim>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[1, 2, 3].map((s, index) => (
+          {PARTNERSHIP_DATA.map((s, index) => (
             <motion.div
               whileInView={{
                 x: [30, 0],
@@ -84,7 +104,7 @@ const Partnership = () => {
                 duration: 0.5,
               }}
             >
-              <PartnershipCard />
+              <PartnershipCard {...s} />
             </motion.div>
           ))}
         </div>
@@ -112,18 +132,18 @@ const Partnership = () => {
   )
 }
 
-const PartnershipCard = () => {
+const PartnershipCard = ({ img, header, paragraph }) => {
   return (
-    <div className="bg-[#F4F4F4] my-[80px] rounded-[8px]">
-      <div className="h-[90%] w-full flex items-center justify-center text-[#F4F4F4]">
-        HI
+    <div
+      className="bg-[#F4F4F4] my-[80px] min-h-[50vh] rounded-[8px] overflow-hidden
+    "
+    >
+      <div className="w-full flex items-center justify-center bg-red-700">
+        <img src={img} />
       </div>
       <div className="p-4 bg-[#F4F4F4]">
-        <h4 className="text-[30px] font-[700]">Expertise and Innovation</h4>
-        <p className="text-[18px] font-[600]">
-          With years of experience in web development, design, and digital
-          strategy, we bring a wealth of expertise and innovation to the table.
-        </p>
+        <h4 className="text-[30px] font-[700]">{header}</h4>
+        <p className="text-[18px] font-[600]">{paragraph}</p>
       </div>
     </div>
   )

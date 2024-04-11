@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import FadeInUp from '~/components/animation/FadeInUp'
 
 interface IProps {
-  header: string
+  header: string | React.ReactNode
   paragraph: string | React.ReactNode
   label: string
   parentClassName?: string
