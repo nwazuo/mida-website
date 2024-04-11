@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 @layer utilities {
-
   /* use to contain content that doesn't need to stretch across screen */
   .c-container {
-    @apply max-w-[1600px] px-4 md:px-5 lg:px-24 xl:px-40 
+    @apply max-w-[1600px] px-4 md:px-5 lg:px-24 xl:px-40;
   }
 
   .c-sick-hover-effect {
+    background: linear-gradient(0deg, black, black) no-repeat right bottom / 0
+      var(--bg-h);
+    transition:
+      background-size 350ms,
+      color 350ms;
+    --bg-h: 100%;
+    text-decoration: none;
     --bg: black;
     --text-color: white;
 
@@ -27,6 +33,48 @@
   .c-sick-hover-effect:where(:hover, :focus-visible) {
     background-size: 100% var(--bg-h);
     background-position-x: left;
+    color: var(--text-color);
+  }
+}
+
+.wave {
+  animation-name: wave-animation;
+  /* Refers to the name of your @keyframes element below */
+  animation-duration: 1.5s;
+  /* Change to speed up or slow down */
+  animation-iteration-count: infinite;
+  /* Never stop waving :) */
+  transform-origin: 70% 70%;
+  /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
     color: var(--text-color)
   }
 }

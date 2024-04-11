@@ -2,10 +2,10 @@ import { stagger, useAnimate, useInView, useIsomorphicLayoutEffect } from "frame
 import { useId } from "react"
 import SplitType from "split-type"
 
-import cn from "~/lib/cn"
+import cn from '~/lib/cn'
 
 type Props = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof JSX.IntrinsicElements
   delay?: number
 } & React.HTMLAttributes<HTMLDivElement>
 
@@ -16,7 +16,7 @@ export default function SplitTextAnim(props: Props) {
   const cname = useId().replaceAll(':', '')
   const [scope, animate] = useAnimate()
 
-  const isInView = useInView(scope, { once: true }) 
+  const isInView = useInView(scope, { once: true })
 
   const Component = as || 'div'
 
@@ -32,7 +32,12 @@ export default function SplitTextAnim(props: Props) {
   return (
     <>
       {/* @ts-ignore */}
-    <Component className={cn(cname, 'init-invisible', className)} {...rest} ref={scope} />
+      <Component
+        // @ts-ignore
+        className={cn(cname, 'init-invisible', className)}
+        {...rest}
+        ref={scope}
+      />
     </>
   )
 }
