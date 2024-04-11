@@ -55,7 +55,7 @@ const Partnership = () => {
   ]
   return (
     <div>
-      <Header variant="white" />
+      <Header variant="dark" />
       <Darkheader
         parentClassName="mb-[-50px]"
         label="Partnership"
@@ -93,6 +93,7 @@ const Partnership = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {PARTNERSHIP_DATA.map((s, index) => (
             <motion.div
+              key={index}
               whileInView={{
                 x: [30, 0],
                 y: [50, 0],

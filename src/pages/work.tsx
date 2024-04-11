@@ -6,7 +6,7 @@ import Header from '~/components/common/Header'
 const Projects = () => {
   return (
     <div>
-      <Header variant="white" />
+      <Header variant="dark" />
       <Darkheader
         label="Our Projects"
         header="Our Work Speaks Volume"

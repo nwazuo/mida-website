@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import React, { FC } from 'react'
+import React, { useMemo } from 'react';
+import { defaultEase } from '~/lib/constants';
 
 type Props = {
   children: React.ReactNode
@@ -8,12 +9,12 @@ type Props = {
   delay?: number
 }
 
-const FadeInUp: FC<Props> = ({ children, as, delay = 0 }: Props) => {
+const FadeInUp = ({ children, as, delay = 0 }: Props) => {
   // const { children, as, delay = 0 } = props
 
-  const MotionComponent = motion<React.HTMLAttributes<HTMLDivElement>>(
-    as || 'div',
-  )
+  const MotionComponent = useMemo(() => {
+    return motion<React.HTMLAttributes<HTMLDivElement>>(as || 'div')
+  }, [as])
 
   return (
     <MotionComponent
@@ -23,8 +24,8 @@ const FadeInUp: FC<Props> = ({ children, as, delay = 0 }: Props) => {
       className="init-invisible"
       transition={{
         delay,
-        ease: [0.61, 1, 0.88, 1],
-        duration: 0.6,
+        ease: defaultEase,
+        duration: 0.6
       }}
     >
       {children}

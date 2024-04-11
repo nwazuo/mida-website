@@ -74,7 +74,7 @@ const Services = () => {
   ]
   return (
     <div>
-      <Header variant="white" />
+      <Header variant="dark" />
       <Darkheader
         label="Our services"
         header="Crafting Digital Transformations."
@@ -142,7 +142,7 @@ const ServiceCard = ({ index, title, paragraph, bullet }) => {
         </FadeInUp>
         <ul className="pl-2 my-8">
           {bullet.map((s, i) => (
-            <FadeInUp delay={0.3 * i}>
+            <FadeInUp delay={0.3 * i} key={i}>
               <li className="my-8" key={i}>
                 {s}
               </li>

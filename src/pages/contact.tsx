@@ -6,7 +6,7 @@ import Header from '~/components/common/Header'
 const Contact = () => {
   return (
     <div>
-      <Header variant="white" />
+      <Header variant="dark" />
       <Darkheader
         label="Contact Us"
         header="Let’s get in touch"

@@ -134,7 +134,7 @@ const About = () => {
 
   return (
     <div>
-      <Header variant="white" />
+      <Header variant="dark" />
       <Darkheader
         parentClassName="mb-[-50px]"
         label="About us"
