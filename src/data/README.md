@@ -1,0 +1,1 @@
+Keep re-usable pieces of data here - pieces of data that is not necessarily tied to any page. E.g. contact details, navigation link data, etc.  

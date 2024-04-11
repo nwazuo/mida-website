@@ -1,10 +1,11 @@
 import '~/styles/global.css'
 
+import { ChakraProvider } from '@chakra-ui/react'
+import ReactLenis from '@studio-freight/react-lenis'
 import type { AppProps } from 'next/app'
 import { Lato } from 'next/font/google'
 import { lazy } from 'react'
 
-import { ChakraProvider } from '@chakra-ui/react'
 import theme from '~/styles/theme.chakra'
 
 
@@ -13,7 +14,7 @@ export interface SharedPageProps {
   token: string
 }
 
-const PreviewProvider = lazy(() => import('~/components/PreviewProvider'))
+const PreviewProvider = lazy(() => import('~/components/common/PreviewProvider'))
 
 const primaryFontFamily = Lato({
   variable: '--font-lato',
@@ -38,6 +39,7 @@ export default function App({
           .init-invisible{visibility:hidden}
         `}
       </style>
+      <ReactLenis root>
       <ChakraProvider theme={theme}>
       {draftMode ? (
         <PreviewProvider token={token}>
@@ -47,6 +49,7 @@ export default function App({
         <Component {...pageProps} />
       )}
       </ChakraProvider>
+      </ReactLenis>
       <noscript>
         <style>{`.init-invisible{visibility:visible}`}</style>
       </noscript>

@@ -1,6 +1,6 @@
 import footerData from "~/data/footer"
 import contactInfo from '~/data/contactInfo'
-import FadeInUp from "./animation/FadeInUp"
+import FadeInUp from "../animation/FadeInUp"
 import Link from "next/link"
 import navigationLinks from "~/data/navigationLinks"
 
