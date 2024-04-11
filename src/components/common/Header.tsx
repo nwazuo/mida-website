@@ -14,40 +14,29 @@ import { IoMenuSharp } from 'react-icons/io5'
 
 import navigationLinks from '~/data/navigationLinks'
 
-import FadeInUp from '../animation/FadeInUp'
-import { FC } from 'react'
-import cn from '~/lib/cn'
+import FadeInUp from '../animation/FadeInUp';
+import cn from '~/lib/cn';
 
 const Link = motion(LinkSource)
 
-interface IProps {
-  variant?: string
+interface Props {
+  variant?: "dark" | "light"
 }
-
-const Header: FC<IProps> = ({ variant = 'dark' }) => {
+export default function Header(
+  props: Props
+) {
+  const { variant = "light" } = props
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const isDarkV = variant === "dark"
+
   return (
-    <div
-      className={cn('py-4 md:py-6 lg:py-10', {
-        'bg-black': variant === 'white',
-        'bg-white': variant === 'dark',
-      })}
-    >
-      <div
-        className={cn('flex justify-between items-center c-container', {
-          'bg-black': variant === 'white',
-          'bg-white': variant === 'dark',
-        })}
-      >
+    <div className={cn('py-4 md:py-6 lg:py-10', isDarkV && 'bg-black')}>
+      <div className="flex justify-between items-center c-container">
         <FadeInUp>
           <Link href="/">
             <Image
-              src={
-                variant === 'dark'
-                  ? '/images/mida-logo.svg'
-                  : '/images/mida-logo-white.svg'
-              }
+              src={isDarkV ? '/images/mida-logo-white.svg' : '/images/mida-logo.svg'}
               width={119}
               height={39}
               alt="Mida logo"
@@ -60,7 +49,7 @@ const Header: FC<IProps> = ({ variant = 'dark' }) => {
           <IconButton
             icon={<IoMenuSharp />}
             aria-label="open drawer menu"
-            className="lg:hidden min-w-[24px] text-[24px] text-black"
+            className={cn("lg:hidden min-w-[24px] text-[24px] text-black", isDarkV && "text-white")}
             variant="unstyled"
             onClick={onOpen}
           />
@@ -118,13 +107,7 @@ const Header: FC<IProps> = ({ variant = 'dark' }) => {
             <Link
               key={link.text}
               href={link.href}
-              className={cn(
-                'c-sick-hover-effect init-invisible text-xl flex items-center ',
-                {
-                  'text-black': variant === 'dark',
-                  'text-white': variant === 'white',
-                },
-              )}
+              className={cn("c-sick-hover-effect init-invisible text-xl flex items-center text-black", isDarkV && "text-white c-sick-hover-effect--white")}
               animate={{
                 y: [10, 0],
                 opacity: [0, 1],
@@ -136,7 +119,7 @@ const Header: FC<IProps> = ({ variant = 'dark' }) => {
                 ease: 'easeInOut',
               }}
             >
-              <span className={cn({ 'text-white': variant === 'white' })}>
+              <span>
                 {link.text}
               </span>
             </Link>
@@ -146,5 +129,3 @@ const Header: FC<IProps> = ({ variant = 'dark' }) => {
     </div>
   )
 }
-
-export default Header

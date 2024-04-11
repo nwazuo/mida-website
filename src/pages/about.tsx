@@ -14,7 +14,7 @@ const About = () => {
   const NextImage = motion(Image)
   return (
     <div>
-      <Header variant="white" />
+      <Header variant="dark" />
       <div
         style={{ color: 'white !important' }}
         className="flex flex-col text-white text-center items-center justify-center md:px-40 w-full c-container bg-black h-[60vh] mb-[-20px] md:mb-[-100px]"

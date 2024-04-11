@@ -12,4 +12,6 @@ export const defaultMeta = {
   }
 }
 
+export const defaultEase = [0.61, 1, 0.88, 1]
+
 
