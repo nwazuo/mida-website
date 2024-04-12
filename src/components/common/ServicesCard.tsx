@@ -15,7 +15,7 @@ const ServicesCard = ({ index, header, paragraph, chips, img }) => {
         'md:flex-row-reverse': (index + 1) % 2 !== 0,
       })}
     >
-      <div className="w-full md:w-[40%]">
+      <div className="w-[80%] md:w-[40%]">
         {/* <FadeInUp key={index} delay={(index + 1) * 0.3}> */}
         <motion.img src={img} style={{ rotate: rotateSpring }} />
         {/* </FadeInUp> */}
