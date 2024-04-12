@@ -40,7 +40,7 @@ export default function ServicesListSection(props: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-7">
+    <div className="flex flex-col gap-6 lg:gap-12">
       {data.map((service, i) => {
         const isOpen = i === openIndex
 
