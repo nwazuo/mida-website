@@ -31,12 +31,12 @@ const ServicesCard = ({ index, header, paragraph, chips, img }) => {
         <FadeInUp delay={0.215}>
           <p>{paragraph}</p>
         </FadeInUp>
-        <div className="flex mt-4 w-full">
+        <div className="flex mt-4 w-full flex-wrap">
           {chips.map((s, i) => (
             <FadeInUp key={i} delay={(i + 1) * 0.3}>
               <div
                 style={{ border: '1px solid #FFFFFF' }}
-                className="py-1 px-1 rounded-[32px] mr-2 flex items-center justify-center text-center text-[8px] md:text-[11px]"
+                className="py-1 my-2 px-1 rounded-[32px] mr-2 flex items-center justify-center text-center text-[8px] md:text-[11px]"
                 key={i}
               >
                 {s}
