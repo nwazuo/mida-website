@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from 'next'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 import LeftBorderContainer from '~/components/animation/LeftBorderContainer'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'

@@ -1,12 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
+import { motion } from 'framer-motion'
 import React from 'react'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'
 import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
 import MidaLink from '~/components/common/MidaLink'
-
-import { motion } from 'framer-motion'
 
 const innerVariant = {
   hidden: {
@@ -94,6 +95,7 @@ const Partnership = () => {
           {PARTNERSHIP_DATA.map((s, index) => (
             <motion.div
               key={index}
+              initial={{ visibility: 'visible' }}
               whileInView={{
                 x: [30, 0],
                 y: [50, 0],
@@ -110,23 +112,33 @@ const Partnership = () => {
           ))}
         </div>
       </section>
-      <div className="my-48 c-container">
-        <h4 className="text-[40px] font-[700]">
-          Send us a mail to collaborate
-        </h4>
-        <p className="text-[24px] text-[#222222] md:w-[60%]">
-          Ready to take the next step? Contact us today to learn more about our
-          partnership opportunities and how we can help you achieve your
-          business objectives. We can't wait to embark on this journey with you.
-        </p>
-        <FadeInUp delay={0.3}>
-          <MidaLink
-            href="#"
-            className="w-fit text-xl lg:text-xl text-black font-bold mt-2 lg:mt-4"
-          >
-            Start a Project
-          </MidaLink>
-        </FadeInUp>
+      <div className="my-20 c-container flex flex-col-reverse md:flex-row items-center justify-between">
+        <div className="w-full md:w-[70%]">
+          <h4 className="text-[40px] font-[700]">
+            Send us a mail to collaborate
+          </h4>
+          <SplitTextAnim className="text-[24px] text-[#222222] md:w-[60%]">
+            Ready to take the next step? Contact us today to learn more about
+            our partnership opportunities and how we can help you achieve your
+            business objectives. We can't wait to embark on this journey with
+            you.
+          </SplitTextAnim>
+          <FadeInUp delay={0.3}>
+            <MidaLink
+              href="#"
+              className="w-fit text-xl lg:text-xl text-black font-bold mt-2 lg:mt-4"
+            >
+              Start a Project
+            </MidaLink>
+          </FadeInUp>
+        </div>
+        <div className="w-full md:w-[30%]">
+          <img
+            src="/images/contact-ball.png"
+            alt="contact-ball"
+            className="w-[80%] mx-auto md:w-full"
+          />
+        </div>
       </div>
       <Footer />
     </div>
@@ -135,16 +147,13 @@ const Partnership = () => {
 
 const PartnershipCard = ({ img, header, paragraph }) => {
   return (
-    <div
-      className="bg-[#F4F4F4] my-[80px] min-h-[50vh] rounded-[8px] overflow-hidden
-    "
-    >
-      <div className="w-full flex items-center justify-center bg-red-700">
-        <img src={img} />
+    <div className="bg-[#F4F4F4] md:my-[80px] min-h-[50vh] rounded-[8px] overflow-hidden">
+      <div className="w-full flex items-center justify-center">
+        <img src={img} alt="Image-card" width="228px" />
       </div>
       <div className="p-4 bg-[#F4F4F4]">
-        <h4 className="text-[30px] font-[700]">{header}</h4>
-        <p className="text-[18px] font-[600]">{paragraph}</p>
+        <h4 className="text-[24px] font-[700]">{header}</h4>
+        <p className="text-[14px] font-[600]">{paragraph}</p>
       </div>
     </div>
   )
