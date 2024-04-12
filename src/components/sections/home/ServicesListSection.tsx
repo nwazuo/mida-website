@@ -27,7 +27,7 @@ const StyledMarkdown = chakra(Markdown, {
   }
 })
 
-export default function ServicesListSection(props: Props) {
+export default function ServicesListCollapsibles(props: Props) {
   const { data } = props
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
