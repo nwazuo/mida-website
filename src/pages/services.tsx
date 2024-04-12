@@ -291,7 +291,7 @@ const ServicePackage = ({ header, paragraph, img, linkTitle, index }) => {
         <motion.img
           src={img}
           alt="rolling stone"
-          className="w-[80%] md:w-full mx-auto"
+          className="w-[60%] md:w-full mx-auto"
           style={{ rotate: rotateSpring }}
         />
       </div>
