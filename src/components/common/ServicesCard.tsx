@@ -1,8 +1,8 @@
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import React from 'react'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 import cn from '~/lib/cn'
-
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 
 const ServicesCard = ({ index, header, paragraph, chips, img }) => {
   const { scrollYProgress } = useScroll()
