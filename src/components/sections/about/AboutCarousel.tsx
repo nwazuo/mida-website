@@ -46,24 +46,26 @@ const AboutCarousel = () => {
       </AnimatePresence>
 
       <div className="flex items-left md:items-center w-full md:w-auto justify-start md:justify-between">
-        <button
+        <motion.button
           disabled={index === 0}
+          whileHover={{ scale: 1.2 }}
           className="bg-black disabled:bg-gray-400 size-[40px] md:size-[80px] disabled:cursor-not-allowed flex items-center justify-center rounded-[50%] mx-4"
           onClick={() => {
             setIndex((prev) => prev - 1)
           }}
         >
           <img src="/icons/left-arrow.svg" className="w-[20px] md:w-auto" />
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           disabled={index === 2}
+          whileHover={{ scale: 1.2 }}
           className="bg-black disabled:bg-gray-400 disabled:cursor-not-allowed size-[40px] md:size-[80px] flex items-center justify-center rounded-[50%]"
           onClick={() => {
             setIndex((prev) => prev + 1)
           }}
         >
           <img src="/icons/right-arrow.svg" className="w-[20px] md:w-auto" />
-        </button>
+        </motion.button>
       </div>
     </div>
   )
