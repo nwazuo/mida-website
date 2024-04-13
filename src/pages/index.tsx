@@ -6,11 +6,13 @@ import Footer from "~/components/common/Footer";
 import Header from "~/components/common/Header";
 import MidaLink from "~/components/common/MidaLink";
 import ProjectsLayout from "~/components/sections/common/ProjectsLayout";
+import BlogSection from "~/components/sections/home/BlogSection";
 import ClientsSection from "~/components/sections/home/ClientsSection";
 import GetInTouchBadge from "~/components/sections/home/GetInTouchBadge";
 import HeroVideo from "~/components/sections/home/HeroVideo";
 import ServicesListCollapsibles from "~/components/sections/home/ServicesListSection";
 import TeamSection from "~/components/sections/home/TeamSection";
+import blogPosts from "~/data/blog";
 import clients from "~/data/clients";
 import projects from "~/data/projects";
 import services from "~/data/services";
@@ -63,6 +65,8 @@ export default function IndexPage(
 
         <TeamSection data={pageData.teamSection} />
 
+        <BlogSection data={pageData.blogSection} />
+
       </main>
       <Footer />
     </>
@@ -90,6 +94,15 @@ export function getStaticProps() {
       cta1: { text: "Build With Us", link: "#" },
       p2: "At Mida Digitals, innovation is fueled by a team of dedicated experts. Our diverse group of professionals brings a wealth of experience, creativity, and a shared passion for technology. Together, we collaborate seamlessly to turn your ideas into exceptional software solutions. Meet the minds behind your success.",
       cta2: { text: "Our Team", link: "#" }
+    },
+    blogSection: {
+      heading: 'News and Articles',
+      posts: blogPosts,
+      p: "Stay tuned into our latest endeavors, insightful articles, and the industry trends. Fresh insights delivered weekly.",
+      cta: {
+        text: 'Read More',
+        link: '#'
+      }
     }
   }
 
