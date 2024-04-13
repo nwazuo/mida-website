@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Header from '~/components/common/Header'
 
 import Image from 'next/image'
@@ -11,6 +11,8 @@ import ServicesCard from '~/components/common/ServicesCard'
 import AboutCarousel from '~/components/sections/about/AboutCarousel'
 import Darkheader from '~/components/common/Darkheader'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'
+
+import { useMotionValue, useMotionValueEvent, useInView, useAnimate } from 'framer-motion'
 
 const About = () => {
   const NextImage = motion(Image)
@@ -179,22 +181,19 @@ const About = () => {
         <div className="bg-[#F4F4F4] c-container flex flex-col md:flex-row items-center justify-between py-12 mt-8">
           <div>
             <CountUpAnimation
-              initialValue={0}
-              targetValue={10}
+              value={10}
               text="Team Members"
             />
           </div>
           <div>
             <CountUpAnimation
-              initialValue={0}
-              targetValue={4}
+              value={4}
               text="Years in Business"
             />
           </div>
           <div>
             <CountUpAnimation
-              initialValue={0}
-              targetValue={40}
+              value={40}
               text="Projects Completed"
             />
           </div>
@@ -266,29 +265,25 @@ const About = () => {
   )
 }
 
-const CountUpAnimation = ({ initialValue, targetValue, text }) => {
-  const [count, setCount] = useState(initialValue)
-  const duration = 1000 // 4 seconds
+const CountUpAnimation = ({ value, text }) => {
+  const [count, setCount] = useState(0);
+  const motionCount = useMotionValue(0)
+  const ref = useRef<HTMLDivElement | null>(null)
+  const inView = useInView(ref, { once: true, amount: 1 })
+  const [_, animate] = useAnimate()
 
   useEffect(() => {
-    let startValue = initialValue
-    const interval = Math.floor(duration / (targetValue - initialValue))
-
-    const counter = setInterval(() => {
-      startValue += 1
-      setCount(startValue)
-      if (startValue >= targetValue) {
-        clearInterval(counter)
-      }
-    }, interval)
-
-    return () => {
-      clearInterval(counter)
+    if (inView) {
+      animate(motionCount, value, { duration: 1, ease: 'easeOut' })
     }
-  }, [targetValue, initialValue])
+  }, [value, motionCount, inView, animate])
+
+  useMotionValueEvent(motionCount, "change", (latest) => {
+    setCount(Math.round(latest))
+  })
 
   return (
-    <div className="flex flex-col text-center">
+    <div className="flex flex-col text-center" ref={ref}>
       <span className="text-[80px] font-[700]">{count}+</span>
       <span className="text-[21px] md:text-[32px] font-[600]">{text}</span>
     </div>
