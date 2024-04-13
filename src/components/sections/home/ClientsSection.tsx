@@ -10,7 +10,7 @@ interface Props {
   data: {
     clients: Clients;
     clientsSectionText: string;
-    clientsSectionCTA: string
+    clientsSectionCTA: CTA
   }
 }
 
@@ -36,7 +36,7 @@ export default function ClientsSection(props: Props) {
         <div>
           <SplitTextAnim as="p" className="text-white text-xs lg:text-2xl lg:text-justify leading-loose lg:leading-loose">{data.clientsSectionText}</SplitTextAnim>
           <FadeInUp delay={0.2}>
-            <MidaLink variant="light" href="#" className="mt-6 lg:mt-10">{data.clientsSectionCTA}</MidaLink>
+            <MidaLink variant="light" href={data.clientsSectionCTA.link} className="mt-6 lg:mt-10">{data.clientsSectionCTA.text}</MidaLink>
           </FadeInUp>
         </div>
       </div>

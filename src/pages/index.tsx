@@ -10,6 +10,7 @@ import ClientsSection from "~/components/sections/home/ClientsSection";
 import GetInTouchBadge from "~/components/sections/home/GetInTouchBadge";
 import HeroVideo from "~/components/sections/home/HeroVideo";
 import ServicesListCollapsibles from "~/components/sections/home/ServicesListSection";
+import TeamSection from "~/components/sections/home/TeamSection";
 import clients from "~/data/clients";
 import projects from "~/data/projects";
 import services from "~/data/services";
@@ -26,7 +27,7 @@ export default function IndexPage(
         <div className="c-container pt-10 md:pt-16 lg:pt-24">
           <SplitTextAnim delay={0.1} as="h2" className="max-w-[1114px] text-[#050411] text-2xl lg:text-[56px] font-semibold leading-[1.42] lg:leading-[1.42]">{pageData.title}</SplitTextAnim>
           <FadeInUp delay={0.3}>
-            <MidaLink href="#" className="mt-6 lg:mt-10">{pageData.cta}</MidaLink>
+            <MidaLink href="#" className="mt-6 lg:mt-10">{pageData.cta.text}</MidaLink>
           </FadeInUp>
         </div>
 
@@ -55,11 +56,12 @@ export default function IndexPage(
           <div className="mt-8 md:mt-10 lg:mt-16">
             <ProjectsLayout data={pageData.projectsSection.projects} />
           </div>
-
           <FadeInUp>
             <MidaLink href="#" className="mt-12 lg:mt-32 lg:mx-auto">View All Project</MidaLink>
           </FadeInUp>
         </div>
+
+        <TeamSection data={pageData.teamSection} />
 
       </main>
       <Footer />
@@ -70,17 +72,24 @@ export default function IndexPage(
 export function getStaticProps() {
   const pageData = {
     title: "Mida is a leading software development agency dedicated to delivering cutting-edge solutions.",
-    cta: "Start A Project",
+    cta: { text: "Start A Project", link: "#" },
     section2QuotedText: "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights.",
     services,
     clientsSection: {
       clients,
       clientsSectionText: "We engineer digital experiences that elevate your brand. Our passion lies in crafting custom solutions that resonate with your audience and drive meaningful results. As your dedicated web development partner, we blend innovation with functionality to ensure your online presence is not just seen but remembered.",
-      clientsSectionCTA: "View All Clients"
+      clientsSectionCTA: { text: "View All Clients", link: "#" }
     },
     projectsSection: {
       heading: 'Our Projects',
       projects
+    },
+    teamSection: {
+      heading: 'Join us Let\'s Build the Future Together',
+      p1: "Whether you're a startup looking to disrupt the market or an established enterprise seeking digital transformation, Mida digitals is your trusted partner. Let's embark on a journey to turn your ideas into reality and shape the future of your business through innovative software solutions",
+      cta1: { text: "Build With Us", link: "#" },
+      p2: "At Mida Digitals, innovation is fueled by a team of dedicated experts. Our diverse group of professionals brings a wealth of experience, creativity, and a shared passion for technology. Together, we collaborate seamlessly to turn your ideas into exceptional software solutions. Meet the minds behind your success.",
+      cta2: { text: "Our Team", link: "#" }
     }
   }
 
