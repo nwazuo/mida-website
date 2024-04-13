@@ -70,6 +70,7 @@ export default function TeamSection(props: Props) {
                 width={380}
                 height={391}
                 className="object-cover w-full h-full"
+                alt=""
               />
             </div>
           ))}
