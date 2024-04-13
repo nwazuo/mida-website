@@ -76,7 +76,7 @@ export default function TeamSection(props: Props) {
           ))}
         </Slider>
       </div>
-      <div className="c-container max-w-[760px] mt-4 lg:mt-16">
+      <div className="c-container max-w-[760px] mt-8 lg:mt-16">
         <SplitTextAnim className="text-sm sm:text-base lg:text-lg text-white   leading-loose lg:leading-loose">{data.p2}</SplitTextAnim>
         <FadeInUp delay={0.1}>
           <MidaLink className="mt-7 lg:mt-10" variant="light" href={data.cta2.link}>{data.cta2.text}</MidaLink>

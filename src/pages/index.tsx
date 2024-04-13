@@ -8,12 +8,14 @@ import MidaLink from "~/components/common/MidaLink";
 import ProjectsLayout from "~/components/sections/common/ProjectsLayout";
 import BlogSection from "~/components/sections/home/BlogSection";
 import ClientsSection from "~/components/sections/home/ClientsSection";
+import FAQSection from "~/components/sections/home/FAQSection";
 import GetInTouchBadge from "~/components/sections/home/GetInTouchBadge";
 import HeroVideo from "~/components/sections/home/HeroVideo";
 import ServicesListCollapsibles from "~/components/sections/home/ServicesListSection";
 import TeamSection from "~/components/sections/home/TeamSection";
 import blogPosts from "~/data/blog";
 import clients from "~/data/clients";
+import faqs from "~/data/faqs";
 import projects from "~/data/projects";
 import services from "~/data/services";
 
@@ -67,6 +69,8 @@ export default function IndexPage(
 
         <BlogSection data={pageData.blogSection} />
 
+        <FAQSection data={pageData.faqSection} />
+
       </main>
       <Footer />
     </>
@@ -103,6 +107,10 @@ export function getStaticProps() {
         text: 'Read More',
         link: '#'
       }
+    },
+    faqSection: {
+      heading: 'Frequently Asked Questions',
+      faqs
     }
   }
 
