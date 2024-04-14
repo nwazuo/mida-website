@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { motion } from 'framer-motion'
 import {
   useAnimate,
@@ -6,9 +7,10 @@ import {
   useMotionValueEvent,
 } from 'framer-motion'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import FadeInUp from '~/components/animation/FadeInUp'
+import LeftBorderContainer from '~/components/animation/LeftBorderContainer'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'
 import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
@@ -48,16 +50,19 @@ const About = () => {
 
   const VALUES_DATA = [
     {
+      img: '/images/diversity.png',
       header: 'Diversity',
       paragraph:
         'MIDA expands beyond employee’s ethnic background, we encourage a diverse culture that celebrate differences and uniqueness.',
     },
     {
+      img: '/images/impact.png',
       header: 'Impact ',
       paragraph:
         'We have built our company culture around finding meaning and making an impact through our work. We also engage our clients on how their work can make positive impact. ',
     },
     {
+      img: '/images/integrity.png',
       header: 'Integrity',
       paragraph:
         'Our business is saturated with confidential information, hence our commitment to trust amongst employees and customers as this is essential to the company’s success.',
@@ -217,12 +222,15 @@ const About = () => {
       </FadeInUp>
 
       <section className="c-container mb-6">
-        <h5
-          className="pl-3 mt-14 text-[48px]"
-          style={{ borderLeft: '1px solid #000' }}
-        >
-          Our values
-        </h5>
+        <LeftBorderContainer>
+          <p
+            className="pl-3 mt-14 text-[48px] mb-10"
+            // style={{ borderLeft: '1px solid #000' }}
+          >
+            {' '}
+            Our values
+          </p>
+        </LeftBorderContainer>
 
         <div className="flex flex-col">
           {VALUES_DATA.map((data, i) => (
@@ -245,19 +253,21 @@ const About = () => {
           </p>
         </div>
         <div>
-          <img src="/images/mida-cycle.png" />
+          <img src="/images/mida-cycle.png" alt="mida-cycle" />
         </div>
       </section>
 
       <section className="c-container bg-black">
         <div className="mt-5 pt-10">
           <FadeInUp delay={0.1}>
-            <h5
-              className="pl-3 mt-4 text-[48px] text-white mb-10"
-              style={{ borderLeft: '1px solid #fff' }}
-            >
-              Our values
-            </h5>
+            <LeftBorderContainer variant="light">
+              <h5
+                className="pl-3 mt-4 text-[48px] text-white mb-10"
+                //style={{ borderLeft: '1px solid #fff' }}
+              >
+                Our Services
+              </h5>
+            </LeftBorderContainer>
           </FadeInUp>
 
           {SERVICES_DATA.map((data, i) => (
