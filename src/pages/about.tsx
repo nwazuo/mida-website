@@ -1,43 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import Header from '~/components/common/Header'
-
-import Image from 'next/image'
-import FadeInUp from '~/components/animation/FadeInUp'
-import Footer from '~/components/common/Footer'
-
 import { motion } from 'framer-motion'
-import ValuesCard from '~/components/common/ValuesCard'
-import ServicesCard from '~/components/common/ServicesCard'
-import AboutCarousel from '~/components/sections/about/AboutCarousel'
-import Darkheader from '~/components/common/Darkheader'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+
+import FadeInUp from '~/components/animation/FadeInUp'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'
+import Darkheader from '~/components/common/Darkheader'
+import Footer from '~/components/common/Footer'
+import Header from '~/components/common/Header'
+import ServicesCard from '~/components/common/ServicesCard'
+import ValuesCard from '~/components/common/ValuesCard'
+import AboutCarousel from '~/components/sections/about/AboutCarousel'
 
 const About = () => {
   const NextImage = motion(Image)
 
-  const innerVariant = {
-    hidden: {
-      rotateY: -90,
-    },
-    visible: {
-      rotateY: 0,
-      transition: {
-        type: 'tween',
-        ease: 'easeOut',
-        duration: 0.8,
-        delay: 0.4,
-      },
-    },
-    leave: {
-      rotateY: -90,
-      transition: {
-        type: 'tween',
-        ease: 'easeIn',
-        duration: 0.3,
-        delay: 0.7,
-      },
-    },
-  }
+  const innerVariant = {}
+
+  // const innerVariant = {
+  //   hidden: {
+  //     rotateY: -90,
+  //   },
+  //   visible: {
+  //     rotateY: 0,
+  //     transition: {
+  //       type: 'tween',
+  //       ease: 'easeOut',
+  //       duration: 0.8,
+  //       delay: 0.4,
+  //     },
+  //   },
+  //   leave: {
+  //     rotateY: -90,
+  //     transition: {
+  //       type: 'tween',
+  //       ease: 'easeIn',
+  //       duration: 0.3,
+  //       delay: 0.7,
+  //     },
+  //   },
+  // }
 
   const VALUES_DATA = [
     {
@@ -147,9 +148,29 @@ const About = () => {
         paragraph="We enhance brands by creating elevated digital experiences."
       />
 
-      <FadeInUp delay={0.03}>
-        <div className="c-container mt-[-30px]">
-          <NextImage
+      {/* <FadeInUp delay={0.03}> */}
+      <motion.div
+        initial={{ opacity: 0, width: 0 }}
+        whileInView={{
+          opacity: 1,
+          width: '100%',
+          transition: {
+            delay: 1.5,
+            ease: 'easeInOut',
+          },
+        }}
+        className="c-container mt-[-30px]"
+      >
+        <NextImage
+          style={{ visibility: 'visible' }}
+          src="/images/about-section-image.png"
+          key="image-animation"
+          width={1600}
+          height={933}
+          alt="about-section"
+          className="rounded-[16px]"
+        />
+        {/* <NextImage
             src="/images/about-section-image.png"
             key="image-animation"
             variants={innerVariant}
@@ -160,9 +181,9 @@ const About = () => {
             height={933}
             alt="about-section"
             className="rounded-[16px]"
-          />
-        </div>
-      </FadeInUp>
+          /> */}
+      </motion.div>
+      {/* </FadeInUp> */}
 
       <div className="bg-white text-[#222222] z-10 pt-[40px] c-container">
         <SplitTextAnim className="text-[21px] md:text-[32px] p-8 font-[600]">

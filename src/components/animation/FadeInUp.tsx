@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import React, { useMemo } from 'react';
-import { defaultEase } from '~/lib/constants';
+import React, { useMemo } from 'react'
+
+import { defaultEase } from '~/lib/constants'
 
 type Props = {
   children: React.ReactNode
@@ -25,7 +26,7 @@ const FadeInUp = ({ children, as, delay = 0 }: Props) => {
       transition={{
         delay,
         ease: defaultEase,
-        duration: 0.6
+        duration: 0.6,
       }}
     >
       {children}
