@@ -1,9 +1,9 @@
 import React from 'react'
 import FadeInUp from '~/components/animation/FadeInUp'
 import cn from '~/lib/cn'
+import SplitTextAnim from '../animation/SplitTextAnim'
 
 const ValuesCard = ({ index, header, paragraph }) => {
-  console.log('Index', index)
   return (
     <div
       className={cn(
@@ -14,7 +14,7 @@ const ValuesCard = ({ index, header, paragraph }) => {
       )}
     >
       <div className="w-full md:w-[50%]">
-        <FadeInUp delay={(index + 1) * 0.1}>
+        <FadeInUp delay={0.1}>
           <img src="/images/dummy-rectangle.jpg" alt="image" />
         </FadeInUp>
       </div>

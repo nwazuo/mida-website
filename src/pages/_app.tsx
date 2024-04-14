@@ -8,6 +8,7 @@ import { lazy } from 'react'
 
 import theme from '~/styles/theme.chakra'
 import Script from 'next/script'
+import Head from 'next/head';
 
 export interface SharedPageProps {
   draftMode: boolean
@@ -42,6 +43,19 @@ export default function App({
           }
         `}
       </style>
+      <Head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+      </Head>
       <ReactLenis root>
         <ChakraProvider theme={theme}>
           {draftMode ? (
