@@ -3,7 +3,7 @@ import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
 
-const Projects = () => {
+export default function Projects() {
   return (
     <div>
       <Header variant="dark" />
@@ -18,4 +18,3 @@ const Projects = () => {
   )
 }
 
-export default Projects

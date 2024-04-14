@@ -1,13 +1,12 @@
 import { Link } from "@chakra-ui/next-js"
 import Image from "next/image"
 import FadeInUp from "~/components/animation/FadeInUp"
-import projectsData from "~/data/projects"
 import cn from "~/lib/cn"
-
-type Projects = typeof projectsData
+import { urlForImage } from "~/lib/sanity.image"
+import { Project } from "~/lib/sanity.queries"
 
 interface Props {
-  data: Projects
+  data: Project[]
 }
 
 export default function ProjectsLayout(props: Props) {
@@ -16,9 +15,9 @@ export default function ProjectsLayout(props: Props) {
   return (
     <div className="flex gap-12 sm:gap-y-20 lg:gap-x-16 lg:gap-y-28 flex-wrap">
       {data.map((project, i) => {
-        const isPortrait = project.coverCrop === "portrait"
+        const isPortrait = project.cover.crop === "portrait"
         /* if current is portrait and previous is portrait, means they are side by side. uhmmm, nope. but, add margin to current */
-        const addAltMargin = i > 0 && isPortrait && data[i - 1]?.coverCrop === "portrait"
+        const addAltMargin = i > 0 && isPortrait && data[i - 1]?.cover.crop === "portrait"
 
         return (
           <Link key={i} href="#"
@@ -33,15 +32,18 @@ export default function ProjectsLayout(props: Props) {
           >
             <FadeInUp>
               <Image
-                src={project.cover}
-                width={dimensionsByCrop[project.coverCrop].width}
-                height={dimensionsByCrop[project.coverCrop].height}
-                alt={project.clientName}
+                src={urlForImage(project.cover.photo).url()}
+                width={dimensionsByCrop[project.cover.crop].width}
+                height={dimensionsByCrop[project.cover.crop].height}
+                alt={project.title}
                 className={cn("object-cover")}
+                quality={100}
+                placeholder="blur"
+                blurDataURL={project.cover.photo.asset.metadata.lqip}
               />
             </FadeInUp>
             <FadeInUp delay={0.05}>
-              <p className="text-xl lg:text-4xl text-[#061433] font-bold mt-4 lg:mt-8">{project.clientName}</p>
+              <p className="text-xl lg:text-4xl text-[#061433] font-bold mt-4 lg:mt-8">{project.title}</p>
             </FadeInUp>
             <FadeInUp delay={0.1}>
               <p className="text-black text-sm md:text-lg lg:text-2xl font-medium mt-1 lg:mt-4">{project.shortDescription}</p>
@@ -50,7 +52,7 @@ export default function ProjectsLayout(props: Props) {
               {
                 project.services.map((service, i) => (
                   <FadeInUp as="p" delay={0.05 * (i + 1)} key={i} className="w-fit text-black text-xs  lg:text-sm font-medium lg:font-semibold mt-1 rounded-full py-1.5 px-3 lg:py-3 lg:px-6 border border-black">
-                    {service}
+                    {service.title}
                   </FadeInUp>
                 ))
               }

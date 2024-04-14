@@ -2,7 +2,9 @@ import { createClient, type SanityClient } from 'next-sanity'
 
 import { apiVersion, dataset, projectId, useCdn } from '~/lib/sanity.api'
 
-export function getClient(preview?: { token: string }): SanityClient {
+export function getClient(preview?: boolean): SanityClient {
+  const token = process.env.SANITY_READ_TOKEN
+
   const client = createClient({
     projectId,
     dataset,
@@ -11,11 +13,11 @@ export function getClient(preview?: { token: string }): SanityClient {
     perspective: 'published',
   })
   if (preview) {
-    if (!preview.token) {
+    if (token) {
       throw new Error('You must provide a token to preview drafts')
     }
     return client.withConfig({
-      token: preview.token,
+      token,
       useCdn: false,
       ignoreBrowserTokenWarning: true,
       perspective: 'previewDrafts',

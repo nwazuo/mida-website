@@ -16,8 +16,8 @@ import TeamSection from "~/components/sections/home/TeamSection";
 import blogPosts from "~/data/blog";
 import clients from "~/data/clients";
 import faqs from "~/data/faqs";
-import projects from "~/data/projects";
 import services from "~/data/services";
+import { getProjectsByPage } from "~/lib/sanity.queries";
 
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -88,7 +88,9 @@ export default function IndexPage(
   )
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const projects = await getProjectsByPage(1, 6);
+
   const pageData = {
     title: "Mida is a leading software development agency dedicated to delivering cutting-edge solutions.",
     cta: { text: "Start A Project", link: "#" },
