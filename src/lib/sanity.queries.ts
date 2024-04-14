@@ -53,6 +53,17 @@ export async function getAllProjects(): Promise<Project[]> {
   return await getQueryData(projectsQuery)
 }
 
+/* Site settings */
+export const siteSettingsQuery = groq`
+  *[_type == "siteSettings"][0]
+`
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  return await getQueryData(siteSettingsQuery)
+}
+
+
+
 export interface Post {
   _type: 'post'
   _id: string
@@ -84,4 +95,21 @@ export interface Service {
   _id: string
   _createdAt: string
   title: string
+}
+
+export interface SiteSettings {
+  defaultMeta: {
+    defaultSiteDescription: string
+    defaultSiteTitle: string
+  }
+  socials: {
+    instagram: string
+    linkedin: string
+    twitter: string
+  }
+  contact: {
+    address: string
+    email: string
+    phone: string
+  }
 }
