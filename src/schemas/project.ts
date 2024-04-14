@@ -7,16 +7,13 @@ const project = {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-      },
-      validation: (Rule) => Rule.required()
+      name: 'liveLink',
+      title: 'Live link',
+      type: 'url',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'cover',
@@ -27,24 +24,25 @@ const project = {
           type: 'image',
           title: 'Project cover image',
           options: {
-            hotspot: true
+            hotspot: true,
           },
-          validation: (Rule) => Rule.required()
+          validation: (Rule) => Rule.required(),
         },
         {
           name: 'crop',
           type: 'string',
           title: 'Crop',
-          description: 'Crop should correspond with the orientation of the image',
+          description:
+            'Crop should correspond with the orientation of the image',
           initialValue: 'landscape',
           options: {
             list: [
               { title: 'Landscape', value: 'landscape' },
-              { title: 'Portrait', value: 'portrait' }
+              { title: 'Portrait', value: 'portrait' },
             ],
-            layout: 'radio'
+            layout: 'radio',
           },
-          validation: (Rule) => Rule.required()
+          validation: (Rule) => Rule.required(),
         },
       ],
     },
@@ -53,14 +51,14 @@ const project = {
       type: 'date',
       title: 'Published At',
       description: 'Latest published projects come first on the live website',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'shortDescription',
       type: 'string',
       title: 'Short description',
       description: 'A one-line description of the project',
-      validation: (Rule) => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'services',
@@ -68,9 +66,9 @@ const project = {
       title: 'Services',
       description: 'List of services offered in the project',
       of: [{ type: 'reference', to: [{ type: 'service' }] }],
-      validation: (Rule) => Rule.required()
-    }
-  ]
+      validation: (Rule) => Rule.required(),
+    },
+  ],
 }
 
 export default project

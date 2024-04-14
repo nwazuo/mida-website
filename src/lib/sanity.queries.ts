@@ -3,7 +3,11 @@ import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
 import { getClient } from './sanity.client'
 
-export async function getQueryData(query: string, queryParams?: any, preview?: boolean) {
+export async function getQueryData(
+  query: string,
+  queryParams?: any,
+  preview?: boolean,
+) {
   const client = getClient(preview)
   return await client.fetch(query, queryParams)
 }
@@ -38,12 +42,15 @@ export const projectsQuery = groq`
   ${projectsQueryFrag} | order(_publishedAt desc) 
 `
 
-export async function getProjectsByPage(page: number, size: number): Promise<Project[]> {
+export async function getProjectsByPage(
+  page: number,
+  size: number,
+): Promise<Project[]> {
   return await getQueryData(projectsByPageQuery, { page, size })
 }
 
 export async function getAllProjects(): Promise<Project[]> {
-  return await getQueryData(groq`*[_type == "project"]`)
+  return await getQueryData(projectsQuery)
 }
 
 export interface Post {
@@ -62,7 +69,7 @@ export interface Project {
   _id: string
   _createdAt: string
   title?: string
-  slug: Slug
+  liveLink: string
   cover: {
     photo: any
     crop: 'landscape' | 'portrait'
