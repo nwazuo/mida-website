@@ -62,6 +62,17 @@ export async function getSiteSettings(): Promise<SiteSettings> {
   return await getQueryData(siteSettingsQuery)
 }
 
+/* Pages Meta */
+export const pageMetaBySlug = groq`
+  *[_type == "page" && slug.current == $slug][0] {
+    title,
+    description
+  }
+`
+
+export async function getPageMetaBySlug(slug: string): Promise<PageMeta> {
+  return await getQueryData(pageMetaBySlug, { slug })
+}
 
 
 export interface Post {
@@ -112,4 +123,9 @@ export interface SiteSettings {
     email: string
     phone: string
   }
+}
+
+export interface PageMeta {
+  title: string,
+  description: string
 }

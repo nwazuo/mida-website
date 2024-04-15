@@ -23,6 +23,8 @@ export type MetaProps = BasicMeta
 export const SEO = (props: MetaProps) => {
   const isDark = useMedia('(prefers-color-scheme: dark)')
 
+  console.log({ props });
+
   const resolvedMetadata = React.useMemo(() => {
     const data = {
       title: props.title

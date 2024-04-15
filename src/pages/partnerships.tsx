@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { motion } from 'framer-motion'
+import { InferGetStaticPropsType } from 'next'
 import React from 'react'
 
 import FadeInUp from '~/components/animation/FadeInUp'
@@ -8,6 +9,8 @@ import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
 import MidaLink from '~/components/common/MidaLink'
+import { SEO } from '~/components/seo'
+import { getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
 
 const innerVariant = {
   hidden: {
@@ -33,29 +36,39 @@ const innerVariant = {
   },
 }
 
-const Partnership = () => {
-  const PARTNERSHIP_DATA = [
-    {
-      img: '/images/expertise.png',
-      header: 'Expertise and Innovation',
-      paragraph:
-        'With years of experience in web development, design, and digital strategy, we bring a wealth of expertise and innovation to the table.',
-    },
-    {
-      img: '/images/collaborative.png',
-      header: 'Collaborative Approach',
-      paragraph:
-        'We believe in working closely with our partners every step of the way. From initial consultation to project delivery and beyond',
-    },
-    {
-      img: '/images/strategic.png',
-      header: 'Strategic Support and Guidance',
-      paragraph:
-        'As your strategic partner, were committed to your long-term success. Well provide ongoing support and guidance to help you navigate the digital landscape.',
-    },
-  ]
+const PARTNERSHIP_DATA = [
+  {
+    img: '/images/expertise.png',
+    header: 'Expertise and Innovation',
+    paragraph:
+      'With years of experience in web development, design, and digital strategy, we bring a wealth of expertise and innovation to the table.',
+  },
+  {
+    img: '/images/collaborative.png',
+    header: 'Collaborative Approach',
+    paragraph:
+      'We believe in working closely with our partners every step of the way. From initial consultation to project delivery and beyond',
+  },
+  {
+    img: '/images/strategic.png',
+    header: 'Strategic Support and Guidance',
+    paragraph:
+      'As your strategic partner, were committed to your long-term success. Well provide ongoing support and guidance to help you navigate the digital landscape.',
+  },
+]
+
+const Partnership = (
+  props: InferGetStaticPropsType<typeof getStaticProps>,
+) => {
+  const { pageData, siteSettings, pageMeta } = props
+
+
   return (
     <div>
+      <SEO
+        {...pageMeta}
+        {...siteSettings.defaultMeta}
+      />
       <Header variant="dark" />
       <Darkheader
         parentClassName="mb-[-50px]"
@@ -140,7 +153,7 @@ const Partnership = () => {
           />
         </div>
       </div>
-      <Footer />
+      <Footer  {...siteSettings} />
     </div>
   )
 }
@@ -160,3 +173,19 @@ const PartnershipCard = ({ img, header, paragraph }) => {
 }
 
 export default Partnership
+
+export async function getStaticProps() {
+  const siteSettings = await getSiteSettings()
+  const pageMeta = await getPageMetaBySlug('partnerships')
+
+  const pageData = {}
+
+  return {
+    props: {
+      pageData,
+      siteSettings,
+      pageMeta
+    },
+  }
+}
+

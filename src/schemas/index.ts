@@ -5,12 +5,7 @@ import post from './post'
 import project from './project'
 import service from './service'
 import siteSettings from './siteSettings'
-import aboutPage from './pages/aboutPage'
-import contactPage from './pages/contactPage'
-import homePage from './pages/homePage'
-import partnershipsPage from './pages/partnerships'
-import servicesPage from './pages/servicesPage'
-import workPage from './pages/workPage'
+import page from './page'
 
 export const schemaTypes = [post, blockContent]
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -20,13 +15,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     project,
     service,
     siteSettings,
-
-    // pages
-    aboutPage,
-    contactPage,
-    homePage,
-    partnershipsPage,
-    servicesPage,
-    workPage,
+    page,
   ],
 }

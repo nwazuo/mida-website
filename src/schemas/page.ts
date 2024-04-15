@@ -1,10 +1,21 @@
 import { defineType } from 'sanity'
 
-const aboutPage = defineType({
-  name: 'page-about',
+const page = defineType({
+  name: 'page',
   type: 'document',
-  title: 'About page',
+  groups: [
+    {
+      name: 'seo',
+      title: 'Meta/SEO',
+    }
+  ],
   fields: [
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule) => Rule.required(),
+    },
     {
       name: 'title',
       title: 'Title',
@@ -16,7 +27,7 @@ const aboutPage = defineType({
       type: 'string',
       description: 'Meta description shown in search engines',
     },
-  ],
+  ]
 })
 
-export default aboutPage
+export default page

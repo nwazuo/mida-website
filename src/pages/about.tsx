@@ -13,9 +13,12 @@ import Darkheader from '~/components/common/Darkheader'
 import SplitTextAnim from '~/components/animation/SplitTextAnim'
 
 import { useMotionValue, useMotionValueEvent, useInView, useAnimate } from 'framer-motion'
+import { getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
+import { InferGetStaticPropsType } from 'next'
+import { SEO } from '~/components/seo'
 
-const About = () => {
-  const NextImage = motion(Image)
+
+const NextImage = motion(Image)
 
   const innerVariant = {
     hidden: {
@@ -134,8 +137,17 @@ const About = () => {
     },
   ]
 
+const About = (
+  props: InferGetStaticPropsType<typeof getStaticProps>,
+) => {
+  const { pageData, siteSettings, pageMeta } = props
+
   return (
     <div>
+      <SEO
+        {...pageMeta}
+        {...siteSettings.defaultMeta}
+      />
       <Header variant="dark" />
       <Darkheader
         parentClassName="mb-[-50px]"
@@ -260,7 +272,7 @@ const About = () => {
         <AboutCarousel />
       </section>
 
-      <Footer />
+      <Footer {...siteSettings} />
     </div>
   )
 }
@@ -291,3 +303,18 @@ const CountUpAnimation = ({ value, text }) => {
 }
 
 export default About
+
+export async function getStaticProps() {
+  const siteSettings = await getSiteSettings()
+  const pageMeta = await getPageMetaBySlug('about')
+
+  const pageData = {}
+
+  return {
+    props: {
+      pageData,
+      siteSettings,
+      pageMeta
+    },
+  }
+}
