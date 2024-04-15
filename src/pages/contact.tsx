@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 
 import Darkheader from '~/components/common/Darkheader'
@@ -43,6 +44,31 @@ const Contact = () => {
             title:
               'House 11B Lekki Beach Rd, Lekki Penninsula II 105102, Lekki, Lagos Nigeria.',
           })}
+          <div className="flex items-center">
+            {[
+              { link: '', icons: '/icons/linkedin.png' },
+              {
+                link: '',
+                icons: '/icons/x.png',
+              },
+              {
+                link: '',
+                icons: '/icons/facebook.png',
+              },
+              {
+                link: '',
+                icons: '/icons/dribble.png',
+              },
+              {
+                link: '',
+                icons: '/icons/instagram.png',
+              },
+            ].map((item) => (
+              <a href={item.link} key={item.icons} className="mr-5">
+                <img src={item.icons} alt="soc-icons" width={32} />
+              </a>
+            ))}
+          </div>
         </div>
         <div className="w-[55%]">
           <ContactForm />
