@@ -1,54 +1,101 @@
-import { defineField, defineType } from 'sanity'
-
-export default defineType({
+const post = {
   name: 'post',
-  title: 'Post',
+  title: 'Blog Post',
   type: 'document',
   fields: [
-    defineField({
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
-    }),
-    defineField({
+      validation: Rule => Rule.required().min(10).max(100),
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
-        maxLength: 96,
+        maxLength: 200,
       },
-    }),
-    defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
-      rows: 4,
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main image',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'cover',
+      title: 'Cover Image',
       type: 'image',
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alt Text',
+          description: 'This should describe the content of the image briefly',
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
+    },
+    {
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
-    }),
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {
+              title: 'Heading 1',
+              value: 'h2'
+            },
+            {
+              title: 'Heading 2',
+              value: 'h3'
+            },
+            {
+              title: 'Heading 3',
+              value: 'h4'
+            },
+          ]
+        },
+        {
+          type: 'image',
+          fields: [
+            {
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+              options: { isHighlighted: true },
+            },
+            {
+              name: 'alt',
+              title: 'Alt text',
+              type: 'string',
+              options: { isHighlighted: true },
+            },
+          ],
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+    },
   ],
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
-    },
-  },
-})
+};
+
+export default post
