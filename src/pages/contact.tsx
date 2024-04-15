@@ -1,7 +1,9 @@
 import React from 'react'
+
 import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
+import ContactForm from '~/components/sections/contact/ContactForm'
 
 const Contact = () => {
   return (
@@ -28,7 +30,34 @@ const Contact = () => {
           </p>
         }
       />
+      <section className="c-container flex items-center justify-between py-20">
+        <div className="w-[35%]">
+          <h5 className="text-[48px] font-[600]">Reach Us</h5>
+          {renderContent({ label: 'Phone', title: '+234 902 123 4567' })}
+          {renderContent({
+            label: 'Email Address',
+            title: 'Hello@midadigitals.com',
+          })}
+          {renderContent({
+            label: 'Office',
+            title:
+              'House 11B Lekki Beach Rd, Lekki Penninsula II 105102, Lekki, Lagos Nigeria.',
+          })}
+        </div>
+        <div className="w-[55%]">
+          <ContactForm />
+        </div>
+      </section>
       <Footer />
+    </div>
+  )
+}
+
+const renderContent = ({ label, title }) => {
+  return (
+    <div className="my-4">
+      <p className="text-[20px] font-[600]">{label}</p>
+      <h6 className="text-[24px] font-[600]">{title}</h6>
     </div>
   )
 }
