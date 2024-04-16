@@ -1,11 +1,23 @@
+import { InferGetStaticPropsType } from 'next'
 import React from 'react'
 import Darkheader from '~/components/common/Darkheader'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
+import { SEO } from '~/components/seo'
+import { getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
 
-const Contact = () => {
+const Contact = (
+  props: InferGetStaticPropsType<typeof getStaticProps>,
+) => {
+  const { pageData, siteSettings, pageMeta } = props
+
+
   return (
     <div>
+      <SEO
+        {...pageMeta}
+        {...siteSettings.defaultMeta}
+      />
       <Header variant="dark" />
       <Darkheader
         label="Contact Us"
@@ -28,9 +40,25 @@ const Contact = () => {
           </p>
         }
       />
-      <Footer />
+      <Footer {...siteSettings} />
     </div>
   )
 }
 
 export default Contact
+
+export async function getStaticProps() {
+  const siteSettings = await getSiteSettings()
+  const pageMeta = await getPageMetaBySlug('contact')
+
+  const pageData = {}
+
+  return {
+    props: {
+      pageData,
+      siteSettings,
+      pageMeta
+    },
+  }
+}
+
