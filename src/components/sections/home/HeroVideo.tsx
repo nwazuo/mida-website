@@ -72,7 +72,6 @@ export default function HeroVideo() {
     <motion.div
       className="mt-8 lg:mt-16 relative overflow-hidden"
       ref={sectionRef}
-      // onMouseMove={(e) => console.log(e)}
     >
       <FadeInUp delay={0.5}>
         <Image

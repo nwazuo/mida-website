@@ -1,16 +1,84 @@
-import footerData from "~/data/footer"
+import footerData from '~/data/footer'
 import contactInfo from '~/data/contactInfo'
-import FadeInUp from "../animation/FadeInUp"
-import Link from "next/link"
-import navigationLinks from "~/data/navigationLinks"
+import FadeInUp from '../animation/FadeInUp'
+import Link from 'next/link'
+import navigationLinks from '~/data/navigationLinks'
+import { useMemo } from 'react'
 
-export default function Footer() {
+interface Props {
+  socials: {
+    twitter: string
+    instagram: string
+    linkedin: string
+  }
+  contact: {
+    address: string
+    email: string
+    phone: string
+  }
+}
+
+export default function Footer(props: Props) {
+  const { socials, contact } = props
+
+  const contactSectionData = useMemo(
+    () => [
+      {
+        title: 'Call us',
+        iconSrc: '/icons/call-icon.svg',
+        content: <p className="text-white font-medium">{contact.phone}</p>,
+      },
+      {
+        title: 'Email Us',
+        iconSrc: '/icons/message-icon.svg',
+        content: (
+          <a
+            href={`mailto:${contact.email}`}
+            className="text-[#1EA1F6] font-medium"
+          >
+            {contact.email}
+          </a>
+        ),
+      },
+      {
+        title: 'Location',
+        iconSrc: '/icons/location-pin-icon.svg',
+        content: <p className="text-white font-medium">{contact.address}</p>,
+      },
+      {
+        title: 'Discover MIDA',
+        iconSrc: '/icons/wifi-find-icon.svg',
+        content: (
+          <ul className="flex gap-6 mt-2">
+            <li className="list-none">
+              <Link target="_blank" href={socials.instagram}>
+                <img src="/icons/instagram-icon.svg" className="w-4" alt="" />
+              </Link>
+            </li>
+            <li className="list-none">
+              <Link target="_blank" href={socials.twitter}>
+                <img src="/icons/twitter-icon.svg" className="w-4" alt="" />
+              </Link>
+            </li>
+            <li className="list-none">
+              <Link target="_blank" href={socials.linkedin}>
+                <img src="/icons/linkedin-icon.svg" className="w-4" alt="" />
+              </Link>
+            </li>
+          </ul>
+        ),
+      },
+    ],
+    [contact, socials],
+  )
 
   return (
     <div className="bg-black pt-14 md:pt-16 lg:pt-32 pb-24 md:pb-28 lg:pb-40">
       <div className="c-container">
         <FadeInUp>
-          <h2 className="text-white text-3xl lg:text-5xl font-medium">{footerData.title}</h2>
+          <h2 className="text-white text-3xl lg:text-5xl font-medium">
+            {footerData.title}
+          </h2>
         </FadeInUp>
         <div className="sm:flex sm:flex-row gap-20 lg:gap-96 mt-10 lg:mt-20">
           <ul className="flex flex-col gap-6 md:gap-8 lg:gap-14">
@@ -50,31 +118,3 @@ export default function Footer() {
     </div>
   )
 }
-
-const contactSectionData = [
-  {
-    title: 'Call us',
-    iconSrc: '/icons/call-icon.svg',
-    content: <p className="text-white font-medium">{contactInfo.phone}</p>
-  },
-  {
-    title: 'Email Us',
-    iconSrc: '/icons/message-icon.svg',
-    content: <a href={`mailto:${contactInfo.email}`} className="text-[#1EA1F6] font-medium">{contactInfo.email}</a>
-  },
-  {
-    title: 'Location',
-    iconSrc: '/icons/location-pin-icon.svg',
-    content: <p className="text-white font-medium">{contactInfo.address}</p>
-  },
-  {
-    title: 'Discover MIDA',
-    iconSrc: '/icons/wifi-find-icon.svg',
-    content: (<ul className="flex gap-6 mt-2">
-      <li className="list-none"><Link target="_blank" href={contactInfo.instagram}><img src="/icons/instagram-icon.svg" className="w-4" alt="" /></Link></li>
-      <li className="list-none"><Link target="_blank" href={contactInfo.twitter}><img src="/icons/twitter-icon.svg" className="w-4" alt="" /></Link></li>
-      <li className="list-none"><Link target="_blank" href={contactInfo.linkedin}><img src="/icons/linkedin-icon.svg" className="w-4" alt="" /></Link></li>
-    </ul>)
-  },
-
-]

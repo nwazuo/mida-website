@@ -14,20 +14,26 @@ import GetInTouchBadge from '~/components/sections/home/GetInTouchBadge'
 import HeroVideo from '~/components/sections/home/HeroVideo'
 import ServicesListCollapsibles from '~/components/sections/home/ServicesListSection'
 import TeamSection from '~/components/sections/home/TeamSection'
+import { SEO } from '~/components/seo'
 import blogPosts from '~/data/blog'
 import clients from '~/data/clients'
 import faqs from '~/data/faqs'
-import projects from '~/data/projects'
 import services from '~/data/services'
+import {
+  getPostsByPageAndSize,
+  getProjectsByPage,
+  getSiteSettings,
+} from '~/lib/sanity.queries'
 
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const { pageData } = props
+  const { pageData, siteSettings } = props
 
   return (
     <>
       <Header />
+      <SEO {...siteSettings.defaultMeta} />
       <main className="min-h-screen">
         <div className="c-container pt-10 md:pt-16 lg:pt-24">
           <SplitTextAnim
@@ -89,12 +95,16 @@ export default function IndexPage(
 
         <FAQSection data={pageData.faqSection} />
       </main>
-      <Footer />
+      <Footer {...siteSettings} />
     </>
   )
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const projects = await getProjectsByPage(1, 6)
+  const siteSettings = await getSiteSettings()
+  const posts = await getPostsByPageAndSize(1, 3)
+
   const pageData = {
     title:
       'Mida is a leading software development agency dedicated to delivering cutting-edge solutions.',
@@ -121,12 +131,12 @@ export function getStaticProps() {
     },
     blogSection: {
       heading: 'News and Articles',
-      posts: blogPosts,
       p: 'Stay tuned into our latest endeavors, insightful articles, and the industry trends. Fresh insights delivered weekly.',
       cta: {
         text: 'Read More',
         link: '#',
       },
+      posts,
     },
     faqSection: {
       heading: 'Frequently Asked Questions',
@@ -137,6 +147,7 @@ export function getStaticProps() {
   return {
     props: {
       pageData,
+      siteSettings,
     },
   }
 }

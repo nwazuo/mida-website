@@ -22,6 +22,10 @@ const navigationLinks = [
   {
     "text": "Contact",
     "href": "/contact"
+  },
+  {
+    "text": "Blog",
+    "href": "/blog"
   }
 ]
 
