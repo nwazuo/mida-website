@@ -1,32 +1,38 @@
-import { InferGetStaticPropsType } from "next";
-import FadeInUp from "~/components/animation/FadeInUp";
-import LeftBorderContainer from "~/components/animation/LeftBorderContainer";
-import SplitTextAnim from "~/components/animation/SplitTextAnim";
-import Footer from "~/components/common/Footer";
-import Header from "~/components/common/Header";
-import MidaLink from "~/components/common/MidaLink";
-import ProjectsLayout from "~/components/sections/common/ProjectsLayout";
-import BlogSection from "~/components/sections/home/BlogSection";
-import ClientsSection from "~/components/sections/home/ClientsSection";
-import FAQSection from "~/components/sections/home/FAQSection";
-import GetInTouchBadge from "~/components/sections/home/GetInTouchBadge";
-import HeroVideo from "~/components/sections/home/HeroVideo";
-import ServicesListCollapsibles from "~/components/sections/home/ServicesListSection";
-import TeamSection from "~/components/sections/home/TeamSection";
-import blogPosts from "~/data/blog";
-import clients from "~/data/clients";
-import faqs from "~/data/faqs";
-import projects from "~/data/projects";
-import services from "~/data/services";
+import { InferGetStaticPropsType } from 'next'
+import FadeInUp from '~/components/animation/FadeInUp'
+import LeftBorderContainer from '~/components/animation/LeftBorderContainer'
+import SplitTextAnim from '~/components/animation/SplitTextAnim'
+import Footer from '~/components/common/Footer'
+import Header from '~/components/common/Header'
+import MidaLink from '~/components/common/MidaLink'
+import ProjectsLayout from '~/components/sections/common/ProjectsLayout'
+import BlogSection from '~/components/sections/home/BlogSection'
+import ClientsSection from '~/components/sections/home/ClientsSection'
+import FAQSection from '~/components/sections/home/FAQSection'
+import GetInTouchBadge from '~/components/sections/home/GetInTouchBadge'
+import HeroVideo from '~/components/sections/home/HeroVideo'
+import ServicesListCollapsibles from '~/components/sections/home/ServicesListSection'
+import TeamSection from '~/components/sections/home/TeamSection'
+import { SEO } from '~/components/seo'
+import blogPosts from '~/data/blog'
+import clients from '~/data/clients'
+import faqs from '~/data/faqs'
+import services from '~/data/services'
+import {
+  getPostsByPageAndSize,
+  getProjectsByPage,
+  getSiteSettings,
+} from '~/lib/sanity.queries'
 
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const { pageData } = props
+  const { pageData, siteSettings } = props
 
   return (
     <>
       <Header />
+      <SEO {...siteSettings.defaultMeta} />
       <main className="min-h-screen">
         <div className="c-container pt-10 md:pt-16 lg:pt-24">
           <SplitTextAnim
@@ -37,7 +43,9 @@ export default function IndexPage(
             {pageData.title}
           </SplitTextAnim>
           <FadeInUp delay={0.3}>
-            <MidaLink href="#" className="mt-6 lg:mt-10">{pageData.cta.text}</MidaLink>
+            <MidaLink href="#" className="mt-6 lg:mt-10">
+              {pageData.cta.text}
+            </MidaLink>
           </FadeInUp>
         </div>
 
@@ -65,14 +73,18 @@ export default function IndexPage(
         <div className="c-container pt-10 pb-32 lg:pt-24 lg:pb-40">
           <LeftBorderContainer>
             <FadeInUp>
-              <h2 className="text-2xl sm:text-3xl lg:text-[40px] text-black font-semibold">{pageData.projectsSection.heading}</h2>
+              <h2 className="text-2xl sm:text-3xl lg:text-[40px] text-black font-semibold">
+                {pageData.projectsSection.heading}
+              </h2>
             </FadeInUp>
           </LeftBorderContainer>
           <div className="mt-8 md:mt-10 lg:mt-16">
             <ProjectsLayout data={pageData.projectsSection.projects} />
           </div>
           <FadeInUp>
-            <MidaLink href="#" className="mt-12 lg:mt-32 lg:mx-auto">View All Project</MidaLink>
+            <MidaLink href="#" className="mt-12 lg:mt-32 lg:mx-auto">
+              View All Project
+            </MidaLink>
           </FadeInUp>
         </div>
 
@@ -81,53 +93,60 @@ export default function IndexPage(
         <BlogSection data={pageData.blogSection} />
 
         <FAQSection data={pageData.faqSection} />
-
       </main>
-      <Footer />
+      <Footer {...siteSettings} />
     </>
   )
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const projects = await getProjectsByPage(1, 6)
+  const siteSettings = await getSiteSettings()
+  const posts = await getPostsByPageAndSize(1, 3)
+
   const pageData = {
-    title: "Mida is a leading software development agency dedicated to delivering cutting-edge solutions.",
-    cta: { text: "Start A Project", link: "#" },
-    section2QuotedText: "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights.",
+    title:
+      'Mida is a leading software development agency dedicated to delivering cutting-edge solutions.',
+    cta: { text: 'Start A Project', link: '#' },
+    section2QuotedText:
+      "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights.",
     services,
     clientsSection: {
       clients,
-      clientsSectionText: "We engineer digital experiences that elevate your brand. Our passion lies in crafting custom solutions that resonate with your audience and drive meaningful results. As your dedicated web development partner, we blend innovation with functionality to ensure your online presence is not just seen but remembered.",
-      clientsSectionCTA: { text: "View All Clients", link: "#" }
+      clientsSectionText:
+        'We engineer digital experiences that elevate your brand. Our passion lies in crafting custom solutions that resonate with your audience and drive meaningful results. As your dedicated web development partner, we blend innovation with functionality to ensure your online presence is not just seen but remembered.',
+      clientsSectionCTA: { text: 'View All Clients', link: '#' },
     },
     projectsSection: {
       heading: 'Our Projects',
-      projects
+      projects,
     },
     teamSection: {
-      heading: 'Join us Let\'s Build the Future Together',
+      heading: "Join us Let's Build the Future Together",
       p1: "Whether you're a startup looking to disrupt the market or an established enterprise seeking digital transformation, Mida digitals is your trusted partner. Let's embark on a journey to turn your ideas into reality and shape the future of your business through innovative software solutions",
-      cta1: { text: "Build With Us", link: "#" },
-      p2: "At Mida Digitals, innovation is fueled by a team of dedicated experts. Our diverse group of professionals brings a wealth of experience, creativity, and a shared passion for technology. Together, we collaborate seamlessly to turn your ideas into exceptional software solutions. Meet the minds behind your success.",
-      cta2: { text: "Our Team", link: "#" }
+      cta1: { text: 'Build With Us', link: '#' },
+      p2: 'At Mida Digitals, innovation is fueled by a team of dedicated experts. Our diverse group of professionals brings a wealth of experience, creativity, and a shared passion for technology. Together, we collaborate seamlessly to turn your ideas into exceptional software solutions. Meet the minds behind your success.',
+      cta2: { text: 'Our Team', link: '#' },
     },
     blogSection: {
       heading: 'News and Articles',
-      posts: blogPosts,
-      p: "Stay tuned into our latest endeavors, insightful articles, and the industry trends. Fresh insights delivered weekly.",
+      p: 'Stay tuned into our latest endeavors, insightful articles, and the industry trends. Fresh insights delivered weekly.',
       cta: {
         text: 'Read More',
-        link: '#'
-      }
+        link: '#',
+      },
+      posts,
     },
     faqSection: {
       heading: 'Frequently Asked Questions',
-      faqs
-    }
+      faqs,
+    },
   }
 
   return {
     props: {
       pageData,
+      siteSettings,
     },
   }
 }

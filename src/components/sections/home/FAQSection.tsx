@@ -41,7 +41,7 @@ export default function FAQSection(props: Props) {
             <div
               key={i}
               className={cn("py-4 lg:py-8 border-b border-b-[#EFEFEF]")}>
-              <FadeInUp delay={i * 0.05} className="flex flex-row gap-2 items-center" role="button" onClick={() => onClick(i)}>
+              <FadeInUp delay={i * 0.05} className="flex flex-row gap-2 items-center justify-between" role="button" onClick={() => onClick(i)}>
                 <h3 role="button" className=" text-lg md:text-xl lg:text-2xl font-bold">{faq.question}</h3>
                 <span className="relative lg:top-1"><MdChevron className={cn("-rotate-90 md:text-lg lg:text-xl", { "rotate-90": isOpen })} /></span>
               </FadeInUp>

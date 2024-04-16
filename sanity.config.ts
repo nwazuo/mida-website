@@ -4,7 +4,7 @@
 
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
 import {
   defineUrlResolver,
   Iframe,
@@ -20,6 +20,7 @@ import {
   projectId,
 } from '~/lib/sanity.api'
 import { schema } from '~/schemas'
+import sanityStructure from 'sanity.structure'
 
 const iframeOptions = {
   url: defineUrlResolver({
@@ -32,33 +33,15 @@ const iframeOptions = {
 
 export default defineConfig({
   basePath: '/studio',
-  name: 'project-name',
-  title: 'Project Name',
+  name: 'Mida',
+  title: 'Mida',
   projectId,
   dataset,
   //edit schemas in './src/schemas'
   schema,
   plugins: [
-    deskTool({
-      // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
-      // You can add any React component to `S.view.component` and it will be rendered in the pane
-      // and have access to content in the form in real-time.
-      // It's part of the Studio's “Structure Builder API” and is documented here:
-      // https://www.sanity.io/docs/structure-builder-reference
-      defaultDocumentNode: (S, { schemaType }) => {
-        return S.document().views([
-          // Default form view
-          S.view.form(),
-          // Preview
-          S.view.component(Iframe).options(iframeOptions).title('Preview'),
-        ])
-      },
-    }),
-    // Add the "Open preview" action
-    previewUrl({
-      base: '/api/draft',
-      requiresSlug: ['post'],
-      urlSecretId: previewSecretId,
+    structureTool({
+      structure: sanityStructure
     }),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
