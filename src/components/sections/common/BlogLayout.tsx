@@ -29,7 +29,7 @@ export default function BlogLayout(props: Props) {
       {posts.map((post, i) => (
         <div className="w-full max-w-[520px]" key={i}>
           <FadeInUp>
-            <Link href={`/blog/${post.slug.current}`}>
+            <Link href={`/blog/post/${post.slug.current}`}>
               <Image
                 src={urlForImage(post.cover).url()}
                 width={520}
@@ -44,7 +44,7 @@ export default function BlogLayout(props: Props) {
 
           <FadeInUp delay={0.1}>
             <Link
-              href={`/blog/${post.slug.current}`}
+              href={`/blog/post/${post.slug.current}`}
               className="block w-fit text-xl lg:text-3xl font-bold mt-2 lg:mt-4"
             >
               {post.title}

@@ -106,6 +106,26 @@ export async function getPostPagesCountBySize(
   return await getQueryData(postPagesCountQuery, { size })
 }
 
+export const postSlugs = groq`
+  *[_type == "post"] {
+    "slug": slug.current
+  }
+`
+
+export async function getPostSlugs(): Promise<{ slug: string }[]> {
+  return await getQueryData(postSlugs)
+}
+
+export const postBySlugQuery = groq`
+*[_type == "post" && slug.current == $slug][0] {
+  ...
+}
+`
+
+export async function getPostBySlug(slug: string): Promise<Post> {
+  return await getQueryData(postBySlugQuery, { slug })
+}
+
 /* Meta */
 
 export async function getPageMetaBySlug(slug: string): Promise<PageMeta> {
