@@ -31,8 +31,8 @@ const Contact = () => {
           </p>
         }
       />
-      <section className="c-container flex items-center justify-between py-20">
-        <div className="w-[35%]">
+      <section className="c-container flex flex-col md:flex-row items-center justify-between py-20">
+        <div className="md:w-[35%]">
           <h5 className="text-[48px] font-[600]">Reach Us</h5>
           {renderContent({ label: 'Phone', title: '+234 902 123 4567' })}
           {renderContent({
@@ -70,7 +70,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-        <div className="w-[55%]">
+        <div className="md:w-[55%] mt-10 md:mt-0">
           <ContactForm />
         </div>
       </section>

@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 
 interface IProps {
