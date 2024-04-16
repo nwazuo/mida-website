@@ -18,7 +18,11 @@ import blogPosts from '~/data/blog'
 import clients from '~/data/clients'
 import faqs from '~/data/faqs'
 import services from '~/data/services'
-import { getProjectsByPage, getSiteSettings } from '~/lib/sanity.queries'
+import {
+  getPostsByPageAndSize,
+  getProjectsByPage,
+  getSiteSettings,
+} from '~/lib/sanity.queries'
 
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -98,6 +102,7 @@ export default function IndexPage(
 export async function getStaticProps() {
   const projects = await getProjectsByPage(1, 6)
   const siteSettings = await getSiteSettings()
+  const posts = await getPostsByPageAndSize(1, 3)
 
   const pageData = {
     title:
@@ -125,12 +130,12 @@ export async function getStaticProps() {
     },
     blogSection: {
       heading: 'News and Articles',
-      posts: blogPosts,
       p: 'Stay tuned into our latest endeavors, insightful articles, and the industry trends. Fresh insights delivered weekly.',
       cta: {
         text: 'Read More',
         link: '#',
       },
+      posts,
     },
     faqSection: {
       heading: 'Frequently Asked Questions',

@@ -17,4 +17,4 @@ export const defaultMeta = {
 
 export const defaultEase = [0.61, 1, 0.88, 1]
 
-export const POSTS_PER_PAGE = 9
+export const POSTS_PER_PAGE = 6

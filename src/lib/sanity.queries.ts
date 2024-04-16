@@ -70,20 +70,61 @@ export const pageMetaBySlug = groq`
   }
 `
 
+/* Blog */
+export const postsListQuery = groq`
+{
+  "items": *[_type == "post"] {
+    slug,
+    cover {
+      ...,
+      asset->
+    },
+    title,
+    tags,
+    _id
+  }[(($page - 1)*$size)...($page * $size)] | order(publishedAt desc),
+  "total": count(*[_type == "post"]) 
+}
+`
+
+export async function getPostsByPageAndSize(
+  page: number,
+  size: number,
+): Promise<{ items: Post[]; total: number }> {
+  return await getQueryData(postsListQuery, { page, size })
+}
+
+export const postPagesCountQuery = groq`
+{
+  "pages": count(*[_type == "post"]) / $size
+}
+`
+
+export async function getPostPagesCountBySize(
+  size: number,
+): Promise<{ pages: number }> {
+  return await getQueryData(postPagesCountQuery, { size })
+}
+
+/* Meta */
+
 export async function getPageMetaBySlug(slug: string): Promise<PageMeta> {
   return await getQueryData(pageMetaBySlug, { slug })
 }
 
-
 export interface Post {
-  _type: 'post'
   _id: string
-  _createdAt: string
-  title?: string
-  slug: Slug
-  excerpt?: string
-  mainImage?: ImageAsset
   body: PortableTextBlock[]
+  cover: {
+    alt: string
+    asset: any
+  }
+  publishedAt: string
+  slug: {
+    current: string
+  }
+  tags: string[]
+  title: string
 }
 
 export interface Project {
@@ -126,6 +167,6 @@ export interface SiteSettings {
 }
 
 export interface PageMeta {
-  title: string,
+  title: string
   description: string
 }
