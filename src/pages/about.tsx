@@ -163,7 +163,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         paragraph="We enhance brands by creating elevated digital experiences."
       />
 
-      <FadeInUp className="c-container lg:mt-[-100px]" delay={0.03}>
+      <FadeInUp className="c-container lg:mt-[-100px] mt-[-50px]" delay={0.03}>
         <NextImage
           src="/images/about-section-image.png"
           width={1600}
