@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
-import React, { useMemo } from 'react';
-import cn from '~/lib/cn';
-import { defaultEase } from '~/lib/constants';
+import React, { useMemo } from 'react'
+
+import cn from '~/lib/cn'
+import { defaultEase } from '~/lib/constants'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -23,11 +24,11 @@ const FadeInUp = (props: Props) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0, visibility: 'visible' }}
       viewport={{ once: true }}
-      className={cn("init-invisible", className)}
+      className={cn('init-invisible', className)}
       transition={{
         delay,
         ease: defaultEase,
-        duration: 0.6
+        duration: 0.6,
       }}
       {...rest}
     >

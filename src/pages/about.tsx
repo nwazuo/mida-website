@@ -1,26 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Header from '~/components/common/Header'
-
-import Image from 'next/image'
-import FadeInUp from '~/components/animation/FadeInUp'
-import Footer from '~/components/common/Footer'
-
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { motion } from 'framer-motion'
-import ValuesCard from '~/components/common/ValuesCard'
-import ServicesCard from '~/components/common/ServicesCard'
-import AboutCarousel from '~/components/sections/about/AboutCarousel'
-import Darkheader from '~/components/common/Darkheader'
-import SplitTextAnim from '~/components/animation/SplitTextAnim'
-
 import {
+  useAnimate,
+  useInView,
   useMotionValue,
   useMotionValueEvent,
-  useInView,
-  useAnimate,
 } from 'framer-motion'
-import { getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
 import { InferGetStaticPropsType } from 'next'
+import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react'
+
+import FadeInUp from '~/components/animation/FadeInUp'
+import SplitTextAnim from '~/components/animation/SplitTextAnim'
+import Darkheader from '~/components/common/Darkheader'
+import Footer from '~/components/common/Footer'
+import Header from '~/components/common/Header'
+import ServicesCard from '~/components/common/ServicesCard'
+import ValuesCard from '~/components/common/ValuesCard'
+import AboutCarousel from '~/components/sections/about/AboutCarousel'
 import { SEO } from '~/components/seo'
+import { getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
 
 const NextImage = motion(Image)
 
@@ -50,16 +50,19 @@ const innerVariant = {
 
 const VALUES_DATA = [
   {
+    img: '/images/diversity.png',
     header: 'Diversity',
     paragraph:
       'MIDA expands beyond employee’s ethnic background, we encourage a diverse culture that celebrate differences and uniqueness.',
   },
   {
+    img: '/images/impact.png',
     header: 'Impact ',
     paragraph:
       'We have built our company culture around finding meaning and making an impact through our work. We also engage our clients on how their work can make positive impact. ',
   },
   {
+    img: '/images/integrity.png',
     header: 'Integrity',
     paragraph:
       'Our business is saturated with confidential information, hence our commitment to trust amongst employees and customers as this is essential to the company’s success.',
@@ -160,7 +163,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         paragraph="We enhance brands by creating elevated digital experiences."
       />
 
-      <FadeInUp className="c-container lg:mt-[-100px]" delay={0.03}>
+      <FadeInUp className="c-container lg:mt-[-100px] mt-[-50px]" delay={0.03}>
         <NextImage
           src="/images/about-section-image.png"
           width={1600}
@@ -224,7 +227,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           </p>
         </div>
         <div>
-          <img src="/images/mida-cycle.png" />
+          <img src="/images/mida-cycle.png" alt="img-cycle" />
         </div>
       </section>
 

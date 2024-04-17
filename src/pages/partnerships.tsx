@@ -78,6 +78,7 @@ const Partnership = (
       />
       <div className="c-container mx-auto mt-[-50px]">
         <motion.img
+          style={{ display: 'visible' }}
           key="image-animation2"
           variants={innerVariant}
           exit="leave"

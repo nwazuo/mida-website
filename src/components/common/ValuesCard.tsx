@@ -1,9 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 import cn from '~/lib/cn'
+
 import SplitTextAnim from '../animation/SplitTextAnim'
 
-const ValuesCard = ({ index, header, paragraph }) => {
+const ValuesCard = ({ index, header, paragraph, img }) => {
   return (
     <div
       className={cn(
@@ -13,9 +16,9 @@ const ValuesCard = ({ index, header, paragraph }) => {
         },
       )}
     >
-      <div className="w-full md:w-[50%]">
+      <div className="w-[60%] md:w-[40%]">
         <FadeInUp delay={0.1}>
-          <img src="/images/dummy-rectangle.jpg" alt="image" />
+          <img src={img} alt="image" />
         </FadeInUp>
       </div>
       <div className="w-full md:w-[45%]">
