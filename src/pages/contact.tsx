@@ -11,6 +11,8 @@ import { getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
 const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pageData, siteSettings, pageMeta } = props
 
+  const socials = siteSettings.socials
+
   return (
     <div>
       <SEO {...pageMeta} {...siteSettings.defaultMeta} />
@@ -52,21 +54,21 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           })}
           <div className="flex items-center">
             {[
-              { link: '', icons: '/icons/linkedin.png' },
+              { link: socials.linkedin, icons: '/icons/linkedin.png' },
               {
-                link: '',
+                link: socials.twitter,
                 icons: '/icons/x.png',
               },
               {
-                link: '',
+                link: socials.facebook,
                 icons: '/icons/facebook.png',
               },
               {
-                link: '',
+                link: socials.dribbble,
                 icons: '/icons/dribble.png',
               },
               {
-                link: '',
+                link: socials.instagram,
                 icons: '/icons/instagram.png',
               },
             ].map((item) => (

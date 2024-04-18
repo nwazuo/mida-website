@@ -44,7 +44,7 @@ export default function IndexPage(
             {pageData.title}
           </SplitTextAnim>
           <FadeInUp delay={0.3}>
-            <MidaLink href="#" className="mt-6 lg:mt-10">
+            <MidaLink href="/contact" className="mt-6 lg:mt-10">
               {pageData.cta.text}
             </MidaLink>
           </FadeInUp>
@@ -83,7 +83,7 @@ export default function IndexPage(
             <ProjectsLayout data={pageData.projectsSection.projects} />
           </div>
           <FadeInUp>
-            <MidaLink href="#" className="mt-12 lg:mt-32 lg:mx-auto">
+            <MidaLink href="/work" className="mt-12 lg:mt-32 lg:mx-auto">
               View All Project
             </MidaLink>
           </FadeInUp>
@@ -116,7 +116,7 @@ export async function getStaticProps() {
       clients,
       clientsSectionText:
         'We engineer digital experiences that elevate your brand. Our passion lies in crafting custom solutions that resonate with your audience and drive meaningful results. As your dedicated web development partner, we blend innovation with functionality to ensure your online presence is not just seen but remembered.',
-      clientsSectionCTA: { text: 'View All Clients', link: '#' },
+      clientsSectionCTA: { text: 'View All Clients', link: '/work' },
     },
     projectsSection: {
       heading: 'Our Projects',
@@ -125,7 +125,7 @@ export async function getStaticProps() {
     teamSection: {
       heading: "Join us Let's Build the Future Together",
       p1: "Whether you're a startup looking to disrupt the market or an established enterprise seeking digital transformation, Mida digitals is your trusted partner. Let's embark on a journey to turn your ideas into reality and shape the future of your business through innovative software solutions",
-      cta1: { text: 'Build With Us', link: '#' },
+      cta1: { text: 'Build With Us', link: '/partnerships' },
       p2: 'At Mida Digitals, innovation is fueled by a team of dedicated experts. Our diverse group of professionals brings a wealth of experience, creativity, and a shared passion for technology. Together, we collaborate seamlessly to turn your ideas into exceptional software solutions. Meet the minds behind your success.',
       cta2: { text: 'Our Team', link: '#' },
     },
@@ -134,7 +134,7 @@ export async function getStaticProps() {
       p: 'Stay tuned into our latest endeavors, insightful articles, and the industry trends. Fresh insights delivered weekly.',
       cta: {
         text: 'Read More',
-        link: '#',
+        link: '/blog',
       },
       posts,
     },

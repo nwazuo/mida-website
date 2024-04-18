@@ -1,12 +1,13 @@
-import SplitTextAnim from "~/components/animation/SplitTextAnim"
-import services from "~/data/services"
+import SplitTextAnim from '~/components/animation/SplitTextAnim'
+import services from '~/data/services'
 import Markdown from 'react-markdown'
 import { chakra } from '@chakra-ui/react'
-import FadeInUp from "~/components/animation/FadeInUp"
-import { useState } from "react"
-import { MdChevronLeft as MdChevron } from "react-icons/md"
-import cn from "~/lib/cn"
-import { AnimatePresence, motion } from "framer-motion"
+import FadeInUp from '~/components/animation/FadeInUp'
+import { useState } from 'react'
+import { MdChevronLeft as MdChevron } from 'react-icons/md'
+import cn from '~/lib/cn'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Link } from '@chakra-ui/next-js'
 interface Props {
   data: typeof services
 }
@@ -17,14 +18,14 @@ const StyledMarkdown = chakra(Markdown, {
       margin: 0,
       lineHeight: 1.6,
       fontSize: {
-        base: "16px",
-        lg: "18px"
-      }
+        base: '16px',
+        lg: '18px',
+      },
     },
-    "a": {
-      textDecoration: "underline"
-    }
-  }
+    a: {
+      textDecoration: 'underline',
+    },
+  },
 })
 
 export default function ServicesListCollapsibles(props: Props) {
@@ -46,21 +47,43 @@ export default function ServicesListCollapsibles(props: Props) {
 
         return (
           <div key={i} className="">
-            <FadeInUp delay={i * 0.05} className="flex flex-row gap-2 items-center text-[#061433]" role="button" onClick={() => onClick(i)}>
-              <h3 className="text-lg md:text-2xl lg:text-3xl font-bold">{service.title}</h3>
-              <span className="relative lg:top-1"><MdChevron className={cn("-rotate-90 md:text-lg lg:text-xl", { "rotate-90": isOpen })} /></span>
+            <FadeInUp
+              delay={i * 0.05}
+              className="flex flex-row gap-2 items-center text-[#061433]"
+              role="button"
+              onClick={() => onClick(i)}
+            >
+              <h3 className="text-lg md:text-2xl lg:text-3xl font-bold">
+                {service.title}
+              </h3>
+              <span className="relative lg:top-1">
+                <MdChevron
+                  className={cn('-rotate-90 md:text-lg lg:text-xl', {
+                    'rotate-90': isOpen,
+                  })}
+                />
+              </span>
             </FadeInUp>
             <FadeInUp className="mt-4">
               <AnimatePresence>
-                {isOpen && <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                >
-                  <StyledMarkdown>
-                    {service.summary}
-                  </StyledMarkdown>
-                </motion.div>}
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                  >
+                    <StyledMarkdown
+                      components={{
+                        a(props) {
+                          //@ts-ignore
+                          return <Link {...props} />
+                        },
+                      }}
+                    >
+                      {service.summary}
+                    </StyledMarkdown>
+                  </motion.div>
+                )}
               </AnimatePresence>
             </FadeInUp>
           </div>

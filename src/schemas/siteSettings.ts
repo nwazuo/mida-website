@@ -63,6 +63,16 @@ const siteSettings = defineType({
           type: 'url',
           title: 'Instagram URL',
         },
+        {
+          name: 'facebook',
+          type: 'url',
+          title: 'Facebook URL',
+        },
+        {
+          name: 'dribbble',
+          type: 'url',
+          title: 'Dribbble URL',
+        },
       ],
     },
     {

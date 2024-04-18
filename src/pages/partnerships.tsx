@@ -57,18 +57,12 @@ const PARTNERSHIP_DATA = [
   },
 ]
 
-const Partnership = (
-  props: InferGetStaticPropsType<typeof getStaticProps>,
-) => {
+const Partnership = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pageData, siteSettings, pageMeta } = props
-
 
   return (
     <div>
-      <SEO
-        {...pageMeta}
-        {...siteSettings.defaultMeta}
-      />
+      <SEO {...pageMeta} {...siteSettings.defaultMeta} />
       <Header variant="dark" />
       <Darkheader
         parentClassName="mb-[-50px]"
@@ -139,7 +133,7 @@ const Partnership = (
           </SplitTextAnim>
           <FadeInUp delay={0.3}>
             <MidaLink
-              href="#"
+              href="/contact"
               className="w-fit text-xl lg:text-xl text-black font-bold mt-2 lg:mt-4"
             >
               Start a Project
@@ -154,7 +148,7 @@ const Partnership = (
           />
         </div>
       </div>
-      <Footer  {...siteSettings} />
+      <Footer {...siteSettings} />
     </div>
   )
 }
@@ -185,8 +179,7 @@ export async function getStaticProps() {
     props: {
       pageData,
       siteSettings,
-      pageMeta
+      pageMeta,
     },
   }
 }
-

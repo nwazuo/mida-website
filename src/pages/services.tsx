@@ -13,19 +13,18 @@ import MidaLink from '~/components/common/MidaLink'
 import ServicesCard from '~/components/common/ServicesCard'
 import { SEO } from '~/components/seo'
 import cn from '~/lib/cn'
-import { getAllProjects, getSiteSettings, getPageMetaBySlug } from '~/lib/sanity.queries'
+import {
+  getAllProjects,
+  getSiteSettings,
+  getPageMetaBySlug,
+} from '~/lib/sanity.queries'
 
-const Services = (
-  props: InferGetStaticPropsType<typeof getStaticProps>,
-) => {
+const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pageData, siteSettings, pageMeta } = props
 
   return (
     <div>
-      <SEO
-        {...pageMeta}
-        {...siteSettings.defaultMeta}
-      />
+      <SEO {...pageMeta} {...siteSettings.defaultMeta} />
       <Header variant="dark" />
       <Darkheader
         label="Our services"
@@ -113,7 +112,7 @@ const ServicePackage = ({ header, paragraph, img, linkTitle, index }) => {
         </SplitTextAnim>
         <MidaLink
           className="w-fit text-xl lg:text-3xl text-black font-bold mt-6 lg:mt-10"
-          href="/"
+          href="/contact"
         >
           {linkTitle}
         </MidaLink>
@@ -373,7 +372,7 @@ export async function getStaticProps() {
     props: {
       pageData,
       siteSettings,
-      pageMeta
+      pageMeta,
     },
   }
 }

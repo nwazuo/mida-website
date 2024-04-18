@@ -213,7 +213,10 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         </div>
       </section>
 
-      <section className="c-container flex flex-col-reverse md:flex-row items-start justify-between my-20">
+      <section
+        className="c-container flex flex-col-reverse md:flex-row items-start justify-between my-20"
+        id="12-step-cycle"
+      >
         <div>
           <h4 className="text-[48px] font-[700] mt-8 md:mt-0">
             MIDA’s 12-step Cycle

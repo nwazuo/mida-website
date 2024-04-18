@@ -178,6 +178,8 @@ export interface SiteSettings {
     instagram: string
     linkedin: string
     twitter: string
+    facebook: string
+    dribbble: string
   }
   contact: {
     address: string
