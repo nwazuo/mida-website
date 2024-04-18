@@ -3,7 +3,7 @@
  */
 
 import { visionTool } from '@sanity/vision'
-import { defineConfig } from 'sanity'
+import { defineConfig, isDev } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import {
   defineUrlResolver,
@@ -21,6 +21,7 @@ import {
 } from '~/lib/sanity.api'
 import { schema } from '~/schemas'
 import sanityStructure from 'sanity.structure'
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 
 const iframeOptions = {
   url: defineUrlResolver({
@@ -41,10 +42,11 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool({
-      structure: sanityStructure
+      structure: sanityStructure,
     }),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: apiVersion }),
+    ...(isDev ? [visionTool({ defaultApiVersion: apiVersion })] : []),
+    vercelDeployTool(),
   ],
 })

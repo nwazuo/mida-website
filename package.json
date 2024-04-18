@@ -37,6 +37,7 @@
     "react-slick": "^0.30.2",
     "sanity": "^3.37.2",
     "sanity-plugin-iframe-pane": "2.6.1",
+    "sanity-plugin-vercel-deploy": "^3.3.4",
     "split-type": "^0.3.4",
     "styled-components": "6.1.8",
     "usehooks-ts": "^3.1.0"

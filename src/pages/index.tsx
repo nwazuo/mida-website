@@ -33,7 +33,10 @@ export default function IndexPage(
   return (
     <>
       <Header />
-      <SEO {...siteSettings.defaultMeta} />
+      <SEO
+        title="Mida Digitals - Web Design, User Experience Design & Digital Products."
+        {...siteSettings.defaultMeta}
+      />
       <main className="min-h-screen">
         <div className="c-container pt-10 md:pt-16 lg:pt-24">
           <SplitTextAnim
