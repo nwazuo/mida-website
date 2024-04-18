@@ -5,6 +5,8 @@ import ReactLenis from '@studio-freight/react-lenis'
 import type { AppProps } from 'next/app'
 import { Lato } from 'next/font/google'
 
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
+
 import theme from '~/styles/theme.chakra'
 import Head from 'next/head'
 
@@ -50,6 +52,7 @@ export default function App({
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </Head>
+      <VercelAnalytics />
       <ReactLenis root>
         <ChakraProvider theme={theme}>
           <Component {...pageProps} />

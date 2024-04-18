@@ -25,6 +25,7 @@
     "@sanity/vision": "3.28.0",
     "@studio-freight/react-lenis": "^0.0.46",
     "@tailwindcss/typography": "0.5.10",
+    "@vercel/analytics": "^1.2.2",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.24",
     "next": "^14.2.1",
