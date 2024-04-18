@@ -72,7 +72,12 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 icons: '/icons/instagram.png',
               },
             ].map((item) => (
-              <a href={item.link} key={item.icons} className="mr-5">
+              <a
+                target="_blank"
+                href={item.link}
+                key={item.icons}
+                className="mr-5"
+              >
                 <img src={item.icons} alt="soc-icons" width={32} />
               </a>
             ))}
