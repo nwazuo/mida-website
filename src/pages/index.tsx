@@ -20,6 +20,7 @@ import clients from '~/data/clients'
 import faqs from '~/data/faqs'
 import services from '~/data/services'
 import {
+  getPageMetaBySlug,
   getPostsByPageAndSize,
   getProjectsByPage,
   getSiteSettings,
@@ -28,15 +29,12 @@ import {
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const { pageData, siteSettings } = props
+  const { pageData, siteSettings, pageMeta } = props
 
   return (
     <>
       <Header />
-      <SEO
-        title="Mida Digitals - Web Design, User Experience Design & Digital Products."
-        {...siteSettings.defaultMeta}
-      />
+      <SEO {...pageMeta} {...siteSettings.defaultMeta} />
       <main className="min-h-screen">
         <div className="c-container pt-10 md:pt-16 lg:pt-24">
           <SplitTextAnim
@@ -107,6 +105,7 @@ export async function getStaticProps() {
   const projects = await getProjectsByPage(1, 6)
   const siteSettings = await getSiteSettings()
   const posts = await getPostsByPageAndSize(1, 3)
+  const pageMeta = await getPageMetaBySlug('index')
 
   const pageData = {
     title:
@@ -151,6 +150,7 @@ export async function getStaticProps() {
     props: {
       pageData,
       siteSettings,
+      pageMeta,
     },
   }
 }
