@@ -1,21 +1,17 @@
-
 const theme = require('./src/styles/theme.chakra').sharedThemeValues
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}"
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       screens: theme.screens,
-      fontFamily: theme.fontFamily
+      fontFamily: theme.fontFamily,
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   corePlugins: {
-    preflight: false
+    preflight: false,
   },
-  important: true
+  important: true,
 }
-

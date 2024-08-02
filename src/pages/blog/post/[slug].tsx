@@ -16,26 +16,6 @@ import {
   getSiteSettings,
 } from '~/lib/sanity.queries'
 
-const StyledPostBody = chakra('div', {
-  baseStyle: {
-    p: {
-      width: {
-        sm: '80%',
-      },
-      fontSize: {
-        base: '20px',
-        md: '24px',
-        lg: '32px',
-      },
-      fontWeight: '600',
-      lineHeight: 1.875,
-      py: {
-        base: '16px',
-      },
-    },
-  },
-})
-
 export default function Post(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
@@ -75,12 +55,12 @@ export default function Post(
         </div>
 
         <FadeInUp as="article" delay={0.3} className="pt-12 lg:pt-24">
-          <StyledPostBody>
+          <div className="prose prose-lg xl:prose-xl 2xl:prose-2xl">
             <PortableText
               value={postData.body}
               components={portableTextComponents as any}
             />
-          </StyledPostBody>
+          </div>
         </FadeInUp>
       </div>
 
