@@ -241,7 +241,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
               className="pl-3 mt-4 text-[48px] text-white mb-10"
               style={{ borderLeft: '1px solid #fff' }}
             >
-              Our values
+              Our Services
             </h5>
           </FadeInUp>
 

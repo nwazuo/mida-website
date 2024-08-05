@@ -53,7 +53,7 @@ const PARTNERSHIP_DATA = [
     img: '/images/strategic.png',
     header: 'Strategic Support and Guidance',
     paragraph:
-      'As your strategic partner, were committed to your long-term success. Well provide ongoing support and guidance to help you navigate the digital landscape.',
+      'As your strategic partner , we are committed to your long term success. We provide ongoing support and guidance to help you navigate the digital landscape.',
   },
 ]
 
@@ -89,7 +89,7 @@ const Partnership = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           delay={0.5}
           className="text-[22px] md:text-[32px] text-[#1C272B] md:w-[80%] font-[600] py-12"
         >
-          At MIDAS, we believe that collaboration is the key to success in
+          At Mida, we believe that collaboration is the key to success in
           today's digital landscape. That's why we're dedicated to forging
           strong partnerships with businesses like yours to drive mutual growth
           and success. Our dedication to collaboration extends far beyond mere

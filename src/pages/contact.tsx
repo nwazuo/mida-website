@@ -23,7 +23,7 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         paragraph={
           <p>
             {' '}
-            Thank you for your interest in MIDAS. Fill out form for free
+            Thank you for your interest in Mida. Fill out form for free
             estimation or book a{' '}
             <span
               style={{

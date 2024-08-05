@@ -16,7 +16,8 @@ export default function ProjectsLayout(props: Props) {
   const { data } = props
 
   return (
-    <div className="flex gap-12 sm:gap-y-20 lg:gap-x-16 lg:gap-y-28 flex-wrap">
+    // <div className="flex gap-12 sm:gap-y-20 lg:gap-x-16 lg:gap-y-28 flex-wrap">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-40">
       {data.map((project, i) => {
         const isPortrait = project.cover.crop === 'portrait'
         /* if current is portrait and previous is portrait, means they are side by side. uhmmm, nope. but, add margin to current */
@@ -64,7 +65,7 @@ export default function ProjectsLayout(props: Props) {
               </Link>
             </FadeInUp>
             <FadeInUp delay={0.1}>
-              <p className="text-black text-sm md:text-lg lg:text-2xl font-medium mt-1 lg:mt-4">
+              <p className="text-black text-sm md:text-lg lg:text-[16px] font-medium mt-1 lg:mt-4">
                 {project.shortDescription}
               </p>
             </FadeInUp>
@@ -74,7 +75,7 @@ export default function ProjectsLayout(props: Props) {
                   as="p"
                   delay={0.05 * (i + 1)}
                   key={i}
-                  className="w-fit text-black text-xs  lg:text-sm font-medium lg:font-semibold mt-1 rounded-full py-1.5 px-3 lg:py-3 lg:px-6 border border-black"
+                  className="w-fit text-black text-xs text-[7px] lg:text-[12px] font-medium lg:font-semibold mt-1 rounded-full py-1.5 px-3 lg:py-3 lg:px-6 border border-black"
                 >
                   {service.title}
                 </FadeInUp>

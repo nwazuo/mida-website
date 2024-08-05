@@ -15,8 +15,8 @@ import { SEO } from '~/components/seo'
 import cn from '~/lib/cn'
 import {
   getAllProjects,
-  getSiteSettings,
   getPageMetaBySlug,
+  getSiteSettings,
 } from '~/lib/sanity.queries'
 
 const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -69,7 +69,7 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           ))}
         </div>
       </section>
-      <section className="c-container py-6">
+      <section id="service-package" className="c-container py-6">
         <LeftBorderContainer>
           <SplitTextAnim
             as="p"
@@ -263,7 +263,7 @@ const INDUSTRIES_DATA = [
     img: '/images/branding-img.png',
     header: 'Fintech',
     paragraph:
-      'We are proud to be at the forefront of this exciting industry, providing cutting-edge web development solutions that empower fintech companies to thrive in a digital-first world. Whether you are looking to streamline payments, enhance security, or improve user experience, MIDAS has the expertise and know-how to deliver tailored solutions that address your specific needs and drive business growth.',
+      'We are proud to be at the forefront of this exciting industry, providing cutting-edge web development solutions that empower fintech companies to thrive in a digital-first world. Whether you are looking to streamline payments, enhance security, or improve user experience, Mida has the expertise and know-how to deliver tailored solutions that address your specific needs and drive business growth.',
     chips: [
       'UI/UX Design',
       'Web development',
@@ -275,7 +275,7 @@ const INDUSTRIES_DATA = [
     img: '/images/ui-img.png',
     header: 'Healthcare',
     paragraph:
-      'In the rapidly evolving landscape of healthcare, digital innovation is revolutionizing the way we deliver and access medical services. At MIDAS, we are committed to leveraging the power of technology to drive positive change in the healthcare industry, helping providers and patients alike to navigate the complexities of modern healthcare with ease and efficiency.',
+      'In the rapidly evolving landscape of healthcare, digital innovation is revolutionizing the way we deliver and access medical services. At Mida, we are committed to leveraging the power of technology to drive positive change in the healthcare industry, helping providers and patients alike to navigate the complexities of modern healthcare with ease and efficiency.',
     chips: [
       'UI/UX Design',
       'Web development',
@@ -287,7 +287,7 @@ const INDUSTRIES_DATA = [
     img: '/images/webdev-img.png',
     header: 'E-Commerce',
     paragraph:
-      'In todays digital marketplace, e-commerce has become the cornerstone of retail success. At MIDAS, we are dedicated to helping businesses thrive in the online space by providing comprehensive e-commerce solutions that drive sales, enhance customer experiences, and maximize ROI.',
+      'In todays digital marketplace, e-commerce has become the cornerstone of retail success. At Mida, we are dedicated to helping businesses thrive in the online space by providing comprehensive e-commerce solutions that drive sales, enhance customer experiences, and maximize ROI.',
     chips: [
       'UI/UX Design',
       'Web development',
@@ -299,7 +299,7 @@ const INDUSTRIES_DATA = [
     img: '/images/cms-img.png',
     header: 'Real Estate',
     paragraph:
-      'In the competitive world of real estate, having a strong online presence is essential for attracting buyers, showcasing properties, and closing deals. At MIDAS, we specialise in creating custom websites and digital solutions that empower real estate professionals to stand out in the market and achieve their business objectives.',
+      'In the competitive world of real estate, having a strong online presence is essential for attracting buyers, showcasing properties, and closing deals. At Mida, we specialise in creating custom websites and digital solutions that empower real estate professionals to stand out in the market and achieve their business objectives.',
     chips: [
       'UI/UX Design',
       'Web development',
@@ -311,7 +311,7 @@ const INDUSTRIES_DATA = [
     img: '/images/blockchain-img.png',
     header: 'Entertainment',
     paragraph:
-      'In the dynamic world of entertainment, captivating audiences and delivering immersive experiences is essential for success. At MIDAS, we specialize in creating cutting-edge websites and digital solutions that engage fans, promote events, and showcase talent in the entertainment industry.',
+      'In the dynamic world of entertainment, captivating audiences and delivering immersive experiences is essential for success. At Mida, we specialize in creating cutting-edge websites and digital solutions that engage fans, promote events, and showcase talent in the entertainment industry.',
     chips: [
       'UI/UX Design',
       'Web development',
@@ -323,7 +323,7 @@ const INDUSTRIES_DATA = [
     img: '/images/seo-img.png',
     header: 'Food',
     paragraph:
-      'In the food and beverage industry, making a memorable impression is essential for attracting customers and driving sales. At MIDAS, we specialize in creating mouthwatering websites and digital experiences that showcase food and beverage brands, promote menus, and entice customers to indulge in culinary delights.',
+      'In the food and beverage industry, making a memorable impression is essential for attracting customers and driving sales. At Mida, we specialize in creating mouthwatering websites and digital experiences that showcase food and beverage brands, promote menus, and entice customers to indulge in culinary delights.',
     chips: [
       'UI/UX Design',
       'Web development',
@@ -335,7 +335,7 @@ const INDUSTRIES_DATA = [
     img: '/images/seo-img.png',
     header: 'Nonprofit',
     paragraph:
-      'In the non-profit sector, making a meaningful impact and driving positive change is paramount. At MIDAS, we are dedicated to supporting non-profit organizations in their mission to create a better world by providing innovative web solutions that inspire action, foster engagement, and drive fundraising efforts.',
+      'In the non-profit sector, making a meaningful impact and driving positive change is paramount. At Mida, we are dedicated to supporting non-profit organizations in their mission to create a better world by providing innovative web solutions that inspire action, foster engagement, and drive fundraising efforts.',
     chips: [
       'UI/UX Design',
       'Web development',

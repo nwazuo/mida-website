@@ -4,19 +4,19 @@ import React, { useState } from 'react'
 const AboutCarousel = () => {
   const carouselAb = [
     {
-      name: 'Christopher',
-      title: 'Ceo, Fizzle Power Tech',
-      body: '“Lorem ipsum dolor sit amet consectetur. Vulputate orci urna lectus leo ridiculus felis blandit fusce. Euismod dictumst venenatis integer eu sed et urna euismod massa. Facilisis sed sollicitudin ac turpis quam quam vel pulvinar eget. Nunc odio mi in ac tortor faucibus.”',
+      name: 'Nzubechi Chinedu',
+      title: '',
+      body: "Excellent work, on time delivery and wonderful customer care service. They worked on my company's business rebranding and we couldn't ask for more. They are just awesome.",
     },
     {
-      name: 'Nyerishi',
-      title: 'Ceo, Smartworks',
-      body: '“Lorem ipsum dolor sit amet consectetur. Vulputate orci urna lectus leo ridiculus felis blandit fusce. Euismod dictumst venenatis integer eu sed et urna euismod massa. Facilisis sed sollicitudin ac turpis quam quam vel pulvinar eget. Nunc odio mi in ac tortor faucibus.”',
+      name: 'Filly Studios',
+      title: '',
+      body: "MIDA is one very reliable company to work with. We are glad to have crossed paths with them. You can't go wrong with MIDA.",
     },
     {
-      name: 'Mida Christopher',
-      title: 'Ceo, MIDA',
-      body: '“Lorem ipsum dolor sit amet consectetur. Vulputate orci urna lectus leo ridiculus felis blandit fusce. Euismod dictumst venenatis integer eu sed et urna euismod massa. Facilisis sed sollicitudin ac turpis quam quam vel pulvinar eget. Nunc odio mi in ac tortor faucibus.”',
+      name: 'Tunde Ekpe',
+      title: '',
+      body: 'The MIDS staff were extremely courteous and patient whilst my web page was being built, as they had virtually no information to work with but made something good out of so little!  I was even more impressed when they helped me navigate the process of editing the website .  but they did apologise and it did not affect their service quality overall. 🙂',
     },
   ]
   const [index, setIndex] = useState(0)
