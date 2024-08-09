@@ -42,6 +42,10 @@ export default function App({
 
       {/* Head section for external stylesheets */}
       <Head>
+        <meta
+          name="p:domain_verify"
+          content="45a7b1092c1f9f6efa942dfc374431ad"
+        />
         <link
           rel="stylesheet"
           type="text/css"
