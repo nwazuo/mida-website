@@ -1,15 +1,14 @@
-import { chakra } from '@chakra-ui/react'
 import { PortableText } from '@portabletext/react'
 import { InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { FaArrowLeft, FaArrowLeftLong } from 'react-icons/fa6'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
 import { SEO } from '~/components/seo'
-import { FaArrowLeft, FaArrowLeftLong } from 'react-icons/fa6'
 import { urlForImage } from '~/lib/sanity.image'
-
 import {
   getPostBySlug,
   getPostSlugs,
@@ -37,7 +36,7 @@ export default function Post(
           </button>
         </FadeInUp>
         <FadeInUp delay={0.1}>
-          <h1 className="text-5xl lg:text-8xl leading-tight lg:leading-tight font-bold">
+          <h1 className="text-4xl lg:text-5xl leading-tight lg:leading-tight font-bold">
             {postData.title}
           </h1>
         </FadeInUp>
@@ -55,7 +54,7 @@ export default function Post(
         </div>
 
         <FadeInUp as="article" delay={0.3} className="pt-12 lg:pt-24">
-          <div className="prose prose-lg xl:prose-xl 2xl:prose-2xl">
+          <div className="prose max-w-none prose-lg xl:prose-xl w-full 2xl:prose-2xl">
             <PortableText
               value={postData.body}
               components={portableTextComponents as any}
@@ -73,7 +72,7 @@ const portableTextComponents = {
   types: {
     image: ({ value }) => {
       return (
-        <div className="relative my-4">
+        <div className="relative lg:bg-slate-100 flex items-center justify-center my-4">
           <Image
             src={urlForImage(value).width(1920).url()}
             alt={value.alt}

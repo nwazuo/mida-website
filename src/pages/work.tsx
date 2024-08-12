@@ -5,7 +5,11 @@ import Footer from '~/components/common/Footer'
 import Header from '~/components/common/Header'
 import ProjectsLayout from '~/components/sections/common/ProjectsLayout'
 import { SEO } from '~/components/seo'
-import { getAllProjects, getPageMetaBySlug, getSiteSettings } from '~/lib/sanity.queries'
+import {
+  getAllProjects,
+  getPageMetaBySlug,
+  getSiteSettings,
+} from '~/lib/sanity.queries'
 
 export default function Projects(
   props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -14,14 +18,11 @@ export default function Projects(
 
   return (
     <div>
-      <SEO
-        {...pageMeta}
-        {...siteSettings.defaultMeta}
-      />
+      <SEO {...pageMeta} {...siteSettings.defaultMeta} />
       <Header variant="dark" />
       <Darkheader
         label="Our Projects"
-        header="Our Work Speaks Volume"
+        header="Our Results Speak Volumes"
         paragraph="Embark on a journey of digital innovation with our web development expertise"
       />
       <section className="c-container pt-12 md:pt-16 lg:pt-40 pb-16 md:pb-20 lg:pb-52">
@@ -45,7 +46,7 @@ export async function getStaticProps() {
     props: {
       pageData,
       siteSettings,
-      pageMeta
+      pageMeta,
     },
   }
 }

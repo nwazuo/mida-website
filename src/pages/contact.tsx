@@ -96,7 +96,7 @@ const renderContent = ({ label, title }) => {
   return (
     <div className="my-4">
       <p className="text-[20px] font-[600]">{label}</p>
-      <h6 className="text-[24px] font-[600]">{title}</h6>
+      <h6 className="text-[20px] font-[400]">{title}</h6>
     </div>
   )
 }
