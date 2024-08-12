@@ -19,12 +19,12 @@ const subfaqs = [
   {
     question: 'What does your web development agency specialize in?',
     answer:
-      'Midadigitals specializes in digital strategy, Web design, Web development and Blockchain. Overall, we ensure that your idea is brought out in an excellent manner.',
+      'Midadigitals specializes in Digital strategy, Web design, Web development and Blockchain across different industries. Overall, we ensure that your idea is executed in an excellent manner.',
   },
   {
     question: 'What makes Mida different from other web development agencies?',
     answer:
-      'We care deeply for our customers and ensure that their goal is achieved through alterations to suit their initial idea. ',
+      'We care deeply for our customers and ensure that their goal is achieved through alterations to suit their initial idea.',
   },
   {
     question: 'How do you handle project management for web development?',
@@ -63,7 +63,7 @@ const subfaqs = [
   },
   {
     question: 'What is your process for updating an existing website?',
-    answer: 'Depends on the established contract.',
+    answer: 'This depends on your Service Package on the established contract.',
   },
 ]
 

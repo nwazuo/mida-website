@@ -41,7 +41,7 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <section className="c-container flex flex-col md:flex-row items-center justify-between py-20">
         <div className="md:w-[35%]">
-          <h5 className="text-[48px] font-[600]">Reach Us</h5>
+          <h5 className="text-4xl font-[600] mb-10">Reach Us</h5>
           {renderContent({ label: 'Phone', title: '+234 902 123 4567' })}
           {renderContent({
             label: 'Email Address',

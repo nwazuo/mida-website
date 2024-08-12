@@ -1,9 +1,11 @@
-import footerData from '~/data/footer'
-import contactInfo from '~/data/contactInfo'
-import FadeInUp from '../animation/FadeInUp'
 import Link from 'next/link'
-import navigationLinks from '~/data/navigationLinks'
 import { useMemo } from 'react'
+
+import contactInfo from '~/data/contactInfo'
+import footerData from '~/data/footer'
+import navigationLinks from '~/data/navigationLinks'
+
+import FadeInUp from '../animation/FadeInUp'
 
 interface Props {
   socials: {

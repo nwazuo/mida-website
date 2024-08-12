@@ -21,7 +21,7 @@ export default function Projects(
       <SEO {...pageMeta} {...siteSettings.defaultMeta} />
       <Header variant="dark" />
       <Darkheader
-        label="Our Projects"
+        label="Our Works"
         header="Our Results Speak Volumes"
         paragraph="Embark on a journey of digital innovation with our web development expertise"
       />

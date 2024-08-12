@@ -215,7 +215,7 @@ const SERVICE_DATA = [
     iconImg: '/images/services/development-icon.png',
     title: 'Development',
     paragraph:
-      'Web development is one tool that could help each business and solve a massive list of business goals. At the web development stage, we help our client realize all their need, and at the same time, follow all necessary steps and rules. Our web development agency uses best practices and already made solutions if such fits well to the project and the requirements. If our client wants to be with us at all stages of the development of PM and account, managers will be happy to help with it. ',
+      'Web development is one tool that could help each business and solve a massive list of business goals. At the web development stage, we help our client realize all their need, and at the same time, follow all necessary steps and rules. Our web development agency uses best practices and already made solutions if such fits well to the project and the requirements. If our client wants to be with us at all stages of the development,our Product managers and account managers will be happy to help with it.',
     bullet: [
       'HTML/CSS/JS',
       'React/Angular',
@@ -244,7 +244,7 @@ const SERVICE_DATA = [
     iconImg: '/images/services/seeder-icon.png',
     title: 'Seeder',
     paragraph:
-      'This is the beginning or discovery stage of a brand. Our team could add any services to the pack and more; it helps us fit our clients’ expectations and make the best commercial proposal with the next recommendations. At this stage, the team and the services could be absolutely flexible, so we try to communicate with our client and his team in the closest way. This is the only service that comes with branding.',
+      'This is the beginning or discovery stage of a brand. Our team could add any services to the pack,this  helps us fit our clients’ expectations and make the best proposal with recommendations. At this stage, the team and its services could be flexible, so we try to communicate with our client and team in the closest way. This is the only service that comes with branding.',
     bullet: [
       'Full Branding',
       'Strategy',

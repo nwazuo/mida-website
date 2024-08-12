@@ -75,7 +75,7 @@ export default function ProjectsLayout(props: Props) {
                   as="p"
                   delay={0.05 * (i + 1)}
                   key={i}
-                  className="w-fit text-black text-xs text-[7px] lg:text-[12px] font-medium lg:font-semibold mt-1 rounded-full py-1.5 px-3 lg:py-3 lg:px-6 border border-black"
+                  className="w-fit text-black text-[7px] lg:text-[12px] font-medium lg:font-semibold mt-1 rounded-full py-1.5 px-3 lg:py-3 lg:px-6 border border-black"
                 >
                   {service.title}
                 </FadeInUp>
