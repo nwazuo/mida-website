@@ -40,14 +40,14 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           transformation.
         </h5>
 
-        <div className="w-full mt-16">
+        <section id="services" className="w-full mt-16">
           {SERVICE_DATA.map((s, i) => (
-            <ServiceCard index={i} key={i} {...s} />
+            <ServiceCard id={s?.title} index={i} key={i} {...s} />
           ))}
-        </div>
+        </section>
       </section>
 
-      <section className="c-container bg-black">
+      <section id="industries" className="c-container bg-black">
         <div className="mt-5 pt-10">
           <FadeInUp delay={0.1}>
             <h5
@@ -129,13 +129,22 @@ const ServicePackage = ({ header, paragraph, img, linkTitle, index }) => {
   )
 }
 
-const ServiceCard = ({ index, title, paragraph, bullet, mainImg, iconImg }) => {
+const ServiceCard = ({
+  id,
+  index,
+  title,
+  paragraph,
+  bullet,
+  mainImg,
+  iconImg,
+}) => {
   const { scrollYProgress } = useScroll()
   const rotate = useTransform(scrollYProgress, [0, 1], [-90, 90])
 
   const rotateSpring = useSpring(rotate)
   return (
     <div
+      id={id || title}
       className={cn(
         'flex flex-col md:flex-row items-start justify-between mb-[160px] gap-6',
         {
