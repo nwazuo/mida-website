@@ -32,7 +32,7 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         paragraph="We offer a comprehensive suite of services tailored to propel your brand to new heights in the digital landscape."
       />
 
-      <section className="c-container">
+      <section id="services" className="c-container">
         <h5 className="mt-4 font-[700] w-full md:w-[95%] py-20 text-[32px]">
           We offer a comprehensive suite of services tailored to propel your
           brand to new heights in the digital landscape. Our expertise goes
@@ -40,7 +40,7 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           transformation.
         </h5>
 
-        <section id="services" className="w-full mt-16">
+        <section className="w-full mt-16">
           {SERVICE_DATA.map((s, i) => (
             <ServiceCard id={s?.title} index={i} key={i} {...s} />
           ))}
