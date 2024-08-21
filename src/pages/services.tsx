@@ -34,10 +34,8 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <section id="services" className="c-container">
         <h5 className="mt-4 font-[700] w-full md:w-[95%] py-20 text-[32px]">
-          We offer a comprehensive suite of services tailored to propel your
-          brand to new heights in the digital landscape. Our expertise goes
-          beyond mere web development – we are architects of digital
-          transformation.
+          Our expertise goes beyond mere web development – we are architects of
+          digital transformation.
         </h5>
 
         <section className="w-full mt-16">
@@ -157,7 +155,7 @@ const ServiceCard = ({
           <h4 className="text-[40px] font-[700]">{title}</h4>
         </FadeInUp>
         <FadeInUp delay={0.15 * index}>
-          <p style={{ lineHeight: '40px' }} className="my-2 font-[600]">
+          <p style={{ lineHeight: '40px' }} className="my-2 font-[400]">
             {paragraph}
           </p>
         </FadeInUp>

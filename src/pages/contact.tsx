@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { InferGetStaticPropsType } from 'next'
 import React from 'react'
 
@@ -78,7 +79,7 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 key={item.icons}
                 className="mr-5"
               >
-                <img src={item.icons} alt="soc-icons" width={32} />
+                <img src={item.icons} alt="soc-icons" width={25} />
               </a>
             ))}
           </div>
@@ -95,8 +96,8 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 const renderContent = ({ label, title }) => {
   return (
     <div className="my-4">
-      <p className="text-[20px] font-[600]">{label}</p>
-      <h6 className="text-[20px] font-[400]">{title}</h6>
+      <p className="text-[16px] font-[400]">{label}</p>
+      <h6 className="text-[16px] font-[400]">{title}</h6>
     </div>
   )
 }

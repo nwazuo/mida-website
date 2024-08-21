@@ -125,7 +125,7 @@ const Partnership = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <h4 className="text-[40px] font-[700]">
             Send us a mail to collaborate
           </h4>
-          <SplitTextAnim className="text-[24px] text-[#222222] md:w-[60%]">
+          <SplitTextAnim className="text-[20px] text-[#222222] md:w-[60%]">
             Ready to take the next step? Contact us today to learn more about
             our partnership opportunities and how we can help you achieve your
             business objectives. We can't wait to embark on this journey with

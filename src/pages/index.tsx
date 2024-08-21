@@ -109,7 +109,7 @@ export async function getStaticProps() {
 
   const pageData = {
     title:
-      'Mida is a leading software development agency dedicated to delivering cutting-edge solutions.',
+      'Mida is a leading software development agency delivering innovative solutions.',
     cta: { text: 'Start A Project', link: '#' },
     section2QuotedText:
       "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights.",
