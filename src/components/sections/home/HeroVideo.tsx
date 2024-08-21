@@ -1,79 +1,87 @@
-import FadeInUp from '~/components/animation/FadeInUp'
-import Image from 'next/image'
-import { IoPlaySharp } from 'react-icons/io5'
-import { useRef } from 'react'
+import { Link } from '@chakra-ui/react'
 import {
   motion,
   useIsomorphicLayoutEffect,
   useMotionValue,
-  useSpring,
 } from 'framer-motion'
-import { Link } from '@chakra-ui/react'
+import Image from 'next/image'
+import { useRef } from 'react'
+import { IoPlaySharp } from 'react-icons/io5'
+
+import FadeInUp from '~/components/animation/FadeInUp'
 
 export default function HeroVideo() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLDivElement>(null)
 
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
+  // const x = useMotionValue(0)
+  // const y = useMotionValue(0)
 
-  const hideCursorForSection = (section: HTMLDivElement) => {
-    section.addEventListener('mouseover', () => {
-      document.body.style.cursor = 'none'
-    })
-    section.addEventListener('mouseout', () => {
-      document.body.style.cursor = 'default'
-    })
-  }
+  // const hideCursorForSection = (section: HTMLDivElement) => {
+  //   section.addEventListener('mouseover', () => {
+  //     document.body.style.cursor = 'none'
+  //   })
+  //   section.addEventListener('mouseout', () => {
+  //     document.body.style.cursor = 'default'
+  //   })
+  // }
 
-  useIsomorphicLayoutEffect(() => {
-    const section = sectionRef.current
-    const btn = btnRef.current
-    if (!section) return
-    if (!btn) return
+  // useIsomorphicLayoutEffect(() => {
+  //   const section = sectionRef.current
+  //   const btn = btnRef.current
+  //   if (!section) return
+  //   if (!btn) return
 
-    hideCursorForSection(section)
+  //   hideCursorForSection(section)
 
-    const limitX_1 = section.offsetLeft
-    const limitX_2 = section.offsetWidth
-    const limitY_1 = section.getBoundingClientRect().top + window.scrollY
-    const limitY_2 = section.offsetHeight + limitY_1
+  //   const limitX_1 = section.offsetLeft
+  //   const limitX_2 = section.offsetWidth
+  //   const limitY_1 = section.getBoundingClientRect().top + window.scrollY
+  //   const limitY_2 = section.offsetHeight + limitY_1
 
-    section.addEventListener('mousemove', (e) => {
-      const tx = e.pageX - limitX_1
-      const ty = e.pageY - limitY_1
+  //   section.addEventListener('mousemove', (e) => {
+  //     const tx = e.pageX - limitX_1
+  //     const ty = e.pageY - limitY_1
 
-      x.set(tx)
-      y.set(ty)
-    })
+  //     x.set(tx)
+  //     y.set(ty)
+  //   })
 
-    section.addEventListener('mouseenter', () => {
-      btn.classList.remove(
-        'top-1/2',
-        'left-1/2',
-        '-translate-x-1/2',
-        '-translate-y-1/2',
-      )
-      btn.classList.add('top-0', 'left-0')
-    })
+  //   section.addEventListener('mouseenter', () => {
+  //     btn.classList.remove(
+  //       'top-1/2',
+  //       'left-1/2',
+  //       '-translate-x-1/2',
+  //       '-translate-y-1/2',
+  //     )
+  //     btn.classList.add('top-0', 'left-0')
+  //   })
 
-    section.addEventListener('mouseleave', () => {
-      btn.classList.remove('top-0', 'left-0')
-      btn.classList.add(
-        'top-1/2',
-        'left-1/2',
-        '-translate-x-1/2',
-        '-translate-y-1/2',
-      )
-    })
-  }, [])
+  //   section.addEventListener('mouseleave', () => {
+  //     btn.classList.remove('top-0', 'left-0')
+  //     btn.classList.add(
+  //       'top-1/2',
+  //       'left-1/2',
+  //       '-translate-x-1/2',
+  //       '-translate-y-1/2',
+  //     )
+  //   })
+  // }, [])
 
   return (
     <motion.div
       className="mt-8 lg:mt-16 relative overflow-hidden"
       ref={sectionRef}
     >
-      <FadeInUp delay={0.5}>
+      <video
+        // controls
+        autoPlay={true}
+        muted
+        loop={true}
+        src="/mida-video.mp4"
+        width="100%"
+      />
+      {/* <FadeInUp delay={0.5}>
         <Image
           width={1920}
           height={960}
@@ -92,7 +100,7 @@ export default function HeroVideo() {
         >
           <IoPlaySharp className="w-2 md:w-3 lg:w-4 text-black" />
         </motion.div>
-      </FadeInUp>
+      </FadeInUp> */}
     </motion.div>
   )
 }

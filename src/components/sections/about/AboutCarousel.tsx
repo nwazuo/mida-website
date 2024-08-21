@@ -16,7 +16,7 @@ const AboutCarousel = () => {
     {
       name: 'Tunde Ekpe',
       title: '',
-      body: 'The MIDAS staff were extremely courteous and patient whilst my web page was being built, as they had virtually no information to work with but made something good out of so little!  I was even more impressed when they helped me navigate the process of editing the website .  but they did apologise and it did not affect their service quality overall. 🙂',
+      body: 'The MIDA staff were extremely courteous and patient whilst my web page was being built, as they had virtually no information to work with but made something good out of so little!  I was even more impressed when they helped me navigate the process of editing the website .  but they did apologise and it did not affect their service quality overall. 🙂',
     },
   ]
   const [index, setIndex] = useState(0)

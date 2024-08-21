@@ -18,8 +18,19 @@ type Props = {
 const subfaqs = [
   {
     question: 'What does your web development agency specialize in?',
-    answer:
-      'Midadigitals specializes in Digital strategy, Web design, Web development and Blockchain across different industries. Overall, we ensure that your idea is executed in an excellent manner.',
+    answer: (
+      <>
+        Midadigitals specializes in Digital strategy, Web design, Web
+        development and Blockchain across different{' '}
+        <Link
+          style={{ textDecoration: 'underline' }}
+          href="/services#industries"
+        >
+          industries
+        </Link>
+        . Overall, we ensure that your idea is executed in an excellent manner.
+      </>
+    ),
   },
   {
     question: 'What makes Mida different from other web development agencies?',
@@ -46,7 +57,7 @@ const subfaqs = [
       <>
         We start with filling in this{' '}
         <a
-          href="https://docs.google.com/forms/u/2/d/e/1FAIpQLSdIAZTBkJslZkWUU-gm2JyXTKJCRnYdfJQAGOe5nePqDLBjwg/viewform?usp=send_form"
+          href="/contact"
           target="_blank"
           style={{
             textDecoration: 'underline',
@@ -63,7 +74,18 @@ const subfaqs = [
   },
   {
     question: 'What is your process for updating an existing website?',
-    answer: 'This depends on your Service Package on the established contract.',
+    answer: (
+      <>
+        This depends on your{' '}
+        <Link
+          style={{ textDecoration: 'underline' }}
+          href="/services#service-package"
+        >
+          Service Package
+        </Link>{' '}
+        on the established contract.
+      </>
+    ),
   },
 ]
 

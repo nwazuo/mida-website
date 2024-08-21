@@ -234,8 +234,8 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         </div>
       </section>
 
-      <section className="c-container bg-black">
-        <div className="mt-5 pt-10">
+      <section className="bg-black">
+        <div className="c-container mt-5 pt-10">
           <FadeInUp delay={0.1}>
             <h5
               className="pl-3 mt-4 text-[48px] text-white mb-10"
