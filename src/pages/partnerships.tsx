@@ -89,14 +89,12 @@ const Partnership = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           delay={0.5}
           className="text-[22px] md:text-[32px] text-[#1C272B] md:w-[80%] font-[600] py-12"
         >
-          At Mida, we believe that collaboration is the key to success in
-          today's digital landscape. That's why we're dedicated to forging
-          strong partnerships with businesses like yours to drive mutual growth
-          and success. Our dedication to collaboration extends far beyond mere
-          business transactions. We view each partnership as an opportunity to
-          create something truly transformative—to combine our expertise,
-          resources, and creative energies to achieve remarkable results
-          together.{' '}
+          At Mida, we believe collaboration is essential for success. That’s why
+          we’re dedicated to forging strong partnerships with businesses like
+          yours to drive mutual growth. We view each partnership as an
+          opportunity to create transformative MVP solutions, combining our
+          expertise, resources, and creativity to achieve remarkable results
+          together.
         </SplitTextAnim>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

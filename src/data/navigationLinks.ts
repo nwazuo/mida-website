@@ -1,32 +1,32 @@
 const navigationLinks = [
   {
-    "text": "About",
-    "href": "/about"
+    text: 'About',
+    href: '/about',
   },
   {
-    "text": "Services",
-    "href": "/services"
+    text: 'Services',
+    href: '/services',
+  },
+  // {
+  //   "text": "Store",
+  //   "href": "/store"
+  // },
+  {
+    text: 'Work',
+    href: '/work',
   },
   {
-    "text": "Store",
-    "href": "/store"
+    text: 'Partnerships',
+    href: '/partnerships',
   },
   {
-    "text": "Work",
-    "href": "/work"
+    text: 'Contact',
+    href: '/contact',
   },
   {
-    "text": "Partnerships",
-    "href": "/partnerships"
+    text: 'Blog',
+    href: '/blog',
   },
-  {
-    "text": "Contact",
-    "href": "/contact"
-  },
-  {
-    "text": "Blog",
-    "href": "/blog"
-  }
 ]
 
 export default navigationLinks

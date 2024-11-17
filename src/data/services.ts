@@ -7,7 +7,7 @@ const services = [
   {
     title: 'Web Design',
     summary:
-      'We’re first a web design agency creating next‑level websites by strategically blending user experience and brand storytelling. Our web designers and developers create responsive websites that feel at home on any device. Product landing pages, marketing sites, or UX UI for company intranet portals – we do it all.',
+      'We’re focused on helping founders build their ideas to revenue-generating MVPs with traction that attracts investors. From branding to web design and prototypes to data rooms. Your one-stop platform from concept to MVP.',
   },
   {
     title: 'Web Development',

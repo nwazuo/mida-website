@@ -4,6 +4,7 @@
 
 import { visionTool } from '@sanity/vision'
 import { defineConfig, isDev } from 'sanity'
+import sanityStructure from 'sanity.structure'
 import { structureTool } from 'sanity/structure'
 import {
   defineUrlResolver,
@@ -11,6 +12,7 @@ import {
   IframeOptions,
 } from 'sanity-plugin-iframe-pane'
 import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 
 // see https://www.sanity.io/docs/api-versioning for how versioning works
 import {
@@ -20,8 +22,6 @@ import {
   projectId,
 } from '~/lib/sanity.api'
 import { schema } from '~/schemas'
-import sanityStructure from 'sanity.structure'
-import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 
 const iframeOptions = {
   url: defineUrlResolver({

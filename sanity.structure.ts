@@ -1,17 +1,13 @@
-import { StructureBuilder } from 'sanity/structure'
 import { GoOrganization, GoRocket } from 'react-icons/go'
 import { IoSettingsOutline } from 'react-icons/io5'
-import { LuPenSquare } from "react-icons/lu";
-
+import { LuPenSquare } from 'react-icons/lu'
+import { StructureBuilder } from 'sanity/structure'
 
 const sanityStructure = (S: StructureBuilder) => {
-
   return S.list()
     .title('Content')
     .items([
-      S.listItem()
-        .title('Pages')
-        .child(S.documentTypeList('page')),
+      S.listItem().title('Pages').child(S.documentTypeList('page')),
       S.listItem()
         .title('Projects')
         .icon(GoRocket)

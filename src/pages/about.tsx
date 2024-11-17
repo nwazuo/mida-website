@@ -160,7 +160,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             Hey <span className="wave">👋</span>, we're MIDA
           </>
         }
-        paragraph="We enhance brands by creating elevated digital experiences."
+        paragraph="Hey, we’re Mida! We help founders build investment-ready MVPs and digital experiences that drive growth."
       />
 
       <FadeInUp className="c-container lg:mt-[-100px] mt-[-50px]" delay={0.03}>
@@ -175,12 +175,10 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <div className="bg-white text-[#222222] z-10 pt-[40px] c-container">
         <SplitTextAnim className="text-[21px] md:text-[32px] p-8 font-[600]">
-          We're a digital product and UX agency in Lagos Nigeria. We major in
-          strategy, design, blockchain and development across all platforms. We
-          are more than just a digital product and UX agency; we are the
-          architects of strategic brilliance, the artists of cutting-edge
-          design, and the pioneers of blockchain and development across diverse
-          platforms.
+          We’re a digital product agency, helping founders build MVPs that
+          attract investors. From branding to web design and prototypes to data
+          rooms, we craft just enough to showcase your potential and drive
+          growth.
         </SplitTextAnim>
       </div>
 

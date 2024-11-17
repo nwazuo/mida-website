@@ -1,9 +1,10 @@
-import Link from 'next/link'
-import FadeInUp from '~/components/animation/FadeInUp'
-import { Post } from '~/lib/sanity.queries'
-import Image from 'next/image'
-import { urlForImage } from '~/lib/sanity.image'
 import { chakra } from '@chakra-ui/react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import FadeInUp from '~/components/animation/FadeInUp'
+import { urlForImage } from '~/lib/sanity.image'
+import { Post } from '~/lib/sanity.queries'
 
 interface Props {
   posts: Post[]

@@ -1,13 +1,14 @@
-import SplitTextAnim from '~/components/animation/SplitTextAnim'
-import services from '~/data/services'
-import Markdown from 'react-markdown'
+import { Link } from '@chakra-ui/next-js'
 import { chakra } from '@chakra-ui/react'
-import FadeInUp from '~/components/animation/FadeInUp'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { MdChevronLeft as MdChevron } from 'react-icons/md'
+import Markdown from 'react-markdown'
+
+import FadeInUp from '~/components/animation/FadeInUp'
+import SplitTextAnim from '~/components/animation/SplitTextAnim'
+import services from '~/data/services'
 import cn from '~/lib/cn'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Link } from '@chakra-ui/next-js'
 interface Props {
   data: typeof services
 }

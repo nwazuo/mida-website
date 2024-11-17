@@ -46,7 +46,7 @@ const Contact = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           {renderContent({ label: 'Phone', title: '+234 902 123 4567' })}
           {renderContent({
             label: 'Email Address',
-            title: 'Hello@midadigitals.com',
+            title: 'hello@midadigitals.com',
           })}
           {renderContent({
             label: 'Office',

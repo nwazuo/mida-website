@@ -28,14 +28,14 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Header variant="dark" />
       <Darkheader
         label="Our services"
-        header="Crafting Digital Transformations."
-        paragraph="We offer a comprehensive suite of services tailored to propel your brand to new heights in the digital landscape."
+        header="Building MVPs for Digital Success."
+        paragraph="We offer comprehensive services to elevate your ideas and prepare you for investment."
       />
 
       <section id="services" className="c-container">
         <h5 className="mt-4 font-[700] w-full md:w-[95%] py-20 text-[32px]">
-          Our expertise goes beyond mere web development – we are architects of
-          digital transformation.
+          Our expertise goes beyond web development—we are architects of MVP
+          solutions that drive digital transformation.
         </h5>
 
         <section className="w-full mt-16">

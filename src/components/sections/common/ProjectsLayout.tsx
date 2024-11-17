@@ -1,6 +1,7 @@
 import { Link as LinkSource } from '@chakra-ui/next-js'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+
 import FadeInUp from '~/components/animation/FadeInUp'
 import cn from '~/lib/cn'
 import { urlForImage } from '~/lib/sanity.image'
