@@ -175,10 +175,11 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <div className="bg-white text-[#222222] z-10 pt-[40px] c-container">
         <SplitTextAnim className="text-[21px] md:text-[32px] p-8 font-[600]">
-          We’re a digital product agency, helping founders build MVPs that
-          attract investors. From branding to web design and prototypes to data
-          rooms, we craft just enough to showcase your potential and drive
-          growth.
+          At MIDA, we help founders, startups, and businesses build
+          investor-ready solutions with just enough to secure funding and
+          traction. Our services focus on MVP development, AI Agents, websites,
+          pitch decks, and data rooms—giving you the tools to attract investors
+          and grow.
         </SplitTextAnim>
       </div>
 

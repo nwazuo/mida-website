@@ -1,6 +1,7 @@
 import type { PortableTextBlock } from '@portabletext/types'
 import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
+
 import { getClient } from './sanity.client'
 
 export async function getQueryData(

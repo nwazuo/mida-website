@@ -29,7 +29,12 @@ const Services = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Darkheader
         label="Our services"
         header="Building MVPs for Digital Success."
-        paragraph="We offer comprehensive services to elevate your ideas and prepare you for investment."
+        paragraph={
+          <p className="w-[80%] mx-auto">
+            We offer comprehensive services to elevate your ideas and prepare
+            you for investment.
+          </p>
+        }
       />
 
       <section id="services" className="c-container">
