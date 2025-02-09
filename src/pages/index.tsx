@@ -112,12 +112,12 @@ export async function getStaticProps() {
       'Mida is a leading digital product agency, crafting MVP solutions that drive investor readiness and business growth.',
     cta: { text: 'Start A Project', link: '#' },
     section2QuotedText:
-      "We embrace technology's transformative power, simplifying complexities, enhancing experiences, and propelling businesses to new heights.",
+      'We use technology to make things simple, improve user experiences, and help businesses grow faster.',
     services,
     clientsSection: {
       clients,
       clientsSectionText:
-        'We engineer digital experiences that elevate your brand. Our passion is crafting custom MVP solutions that resonate with your audience and attract the investment you deserve. As your dedicated partner, we blend innovation with functionality to ensure your product stands out and drives meaningful results.',
+        'We build digital solutions that help your business grow. Our focus is on creating MVPs that connect with your audience and attract investors. With a mix of smart design and practical features, we make sure your product stands out and delivers real results.',
       clientsSectionCTA: { text: 'View All Clients', link: '/work' },
     },
     projectsSection: {
@@ -126,7 +126,7 @@ export async function getStaticProps() {
     },
     teamSection: {
       heading: "Join us Let's Build the Future Together",
-      p1: 'Whether you’re a startup aiming to disrupt the market or an established enterprise seeking digital transformation, Mida Digitals is your trusted partner. Let’s embark on a journey to turn your ideas into MVPs and shape the future of your business through innovative, investor-ready software solutions.',
+      p1: "Whether you're a startup looking to break into the market or a business ready for digital growth, Mida Digitals is your go-to partner. We help turn your ideas into MVPs, giving you the right tools to attract investors and confidently scale.",
       cta1: { text: 'Build With Us', link: '/partnerships' },
       p2: 'At Mida Digitals, innovation is driven by a team of dedicated experts. Our diverse professionals bring a wealth of experience, creativity, and a shared passion for technology. Together, we collaborate seamlessly to transform your ideas into MVP-ready software solutions. Meet the minds behind your success.',
       cta2: { text: 'Our Team', link: '#' },
