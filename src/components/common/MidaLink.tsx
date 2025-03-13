@@ -6,6 +6,7 @@
 import { Link } from '@chakra-ui/next-js'
 import { chakra, useStyleConfig } from '@chakra-ui/react'
 import { ComponentProps } from 'react'
+
 import cn from '~/lib/cn'
 
 type Props = ComponentProps<typeof Link> & {

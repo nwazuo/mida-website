@@ -20,6 +20,10 @@ const navigationLinks = [
     href: '/partnerships',
   },
   {
+    text: 'AI Agents',
+    href: '/ai-agents',
+  },
+  {
     text: 'Contact',
     href: '/contact',
   },

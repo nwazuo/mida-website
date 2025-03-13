@@ -1,4 +1,5 @@
 import Image from "next/image"
+
 import FadeInUp from "~/components/animation/FadeInUp";
 import SplitTextAnim from "~/components/animation/SplitTextAnim";
 import MidaLink from "~/components/common/MidaLink";

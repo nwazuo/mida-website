@@ -10,39 +10,52 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { IoMenuSharp } from 'react-icons/io5'
 
 import navigationLinks from '~/data/navigationLinks'
+import cn from '~/lib/cn'
 
 import FadeInUp from '../animation/FadeInUp'
-import cn from '~/lib/cn'
 
 const Link = motion(LinkSource)
 
 interface Props {
-  variant?: 'dark' | 'light'
+  variant?: 'dark' | 'light' | 'transparent-dark'
 }
-export default function Header(props: Props) {
+export default function Header(props: Readonly<Props>) {
   const { variant = 'light' } = props
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const isDarkV = variant === 'dark'
+  const isTransparentDark = variant === 'transparent-dark'
+  const usesDarkText = isDarkV || isTransparentDark
+  
+  const pathname = usePathname()
+  const logoSrc =
+    pathname === '/ai-agents'
+      ? '/images/mida-logo-white-short.svg'
+      : usesDarkText
+        ? '/images/mida-logo-white.svg'
+        : '/images/mida-logo.svg'
 
   return (
-    <div className={cn('py-4 md:py-6 lg:py-10', isDarkV && 'bg-black')}>
+    <div
+      className={cn(
+        'py-4 md:py-6 lg:py-10 relative z-50',
+        isDarkV && 'bg-black',
+        isTransparentDark && 'bg-transparent'
+      )}
+    >
       <div className="flex justify-between items-center c-container">
         <FadeInUp>
           <Link href="/">
             <Image
-              src={
-                isDarkV
-                  ? '/images/mida-logo-white.svg'
-                  : '/images/mida-logo.svg'
-              }
+              src={logoSrc}
               width={119}
               height={39}
               alt="Mida logo"
-              className="w-[60px] lg:w-[120px]"
+              className="w-[60px] lg:w-[120px] max-w-[119px] max-h-[39px] object-contain"
             />
           </Link>
         </FadeInUp>
@@ -53,7 +66,7 @@ export default function Header(props: Props) {
             aria-label="open drawer menu"
             className={cn(
               'lg:hidden min-w-[24px] text-[24px] text-black',
-              isDarkV && 'text-white',
+              usesDarkText && 'text-white',
             )}
             variant="unstyled"
             onClick={onOpen}
@@ -66,10 +79,8 @@ export default function Header(props: Props) {
                 {isOpen && (
                   <motion.div
                     className="flex flex-col gap-6 pt-36 items-center"
-                    // initial="hidden"
                     animate="visible"
                     variants={{
-                      // hidden: { opacity: 0, x: -30 },
                       visible: {
                         opacity: 1,
                         x: 0,
@@ -113,8 +124,8 @@ export default function Header(props: Props) {
               key={link.text}
               href={link.href}
               className={cn(
-                'c-sick-hover-effect init-invisible text-xl flex items-center text-black',
-                isDarkV && 'text-white c-sick-hover-effect--white',
+                'c-sick-hover-effect init-invisible text-xl flex items-center text-black relative z-50',
+                usesDarkText && 'text-white c-sick-hover-effect--white',
               )}
               animate={{
                 y: [10, 0],
