@@ -84,7 +84,7 @@ const AIAgents = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           initial="hidden"
           animate="visible"
           src="/images/ai-agent.png"
-          className="rounded-sm mx-auto w-full max-w-[1384px] h-[500px] object-cover"
+          className="rounded-sm mx-auto w-full max-w-[1384px] h-[500px] object-cover pointer-events-none"
           alt="parnership img"
         />
       </div>
@@ -270,7 +270,7 @@ const AIAgents = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           </div>
         </div>
       </section>
-      <section className="c-container my-[180px] md:my-[250px] px-6 max-w-[1408px] mx-auto">
+      <section className="c-container my-[180px] md:my-[220px] px-6 max-w-[1408px] mx-auto">
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-2 relative">
           <img
             src="/images/vector-1-solution.svg"
@@ -306,7 +306,7 @@ const AIAgents = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           </div>
         </div>
       </section>
-      <section className="c-container my-[163px] relative">
+      <section className="c-container relative">
         <FAQSection />
         <img
           src="/images/vector-2-faq.svg"

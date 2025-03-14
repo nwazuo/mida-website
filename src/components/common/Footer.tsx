@@ -20,7 +20,7 @@ interface Props {
   }
 }
 
-export default function Footer(props: Props) {
+export default function Footer(props: Readonly<Props>) {
   const { socials, contact } = props
 
   const contactSectionData = useMemo(
