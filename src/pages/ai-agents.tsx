@@ -203,13 +203,17 @@ const AIAgents = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
               className="absolute top-0 right-0 z-0 pointer-events-none"
             />
             <div className="relative z-10 w-full">
-              <h1 className="font-semibold text-[40px] md:text-[50px] text-white">
-                Join Our Waitlist 🚀
-              </h1>
-              <p className="leading-[28px] text-gray-300 mt-4">
-                Sign up now to be among the first to access Mida AI. Get
-                exclusive updates, early access, and special offers.
-              </p>
+              <FadeInUp delay={0.01}>
+                <h1 className="font-semibold text-[40px] md:text-[50px] text-white">
+                  Join Our Waitlist 🚀
+                </h1>
+              </FadeInUp>{' '}
+              <FadeInUp delay={0.215}>
+                <p className="leading-[28px] text-gray-300 mt-4">
+                  Sign up now to be among the first to access Mida AI. Get
+                  exclusive updates, early access, and special offers.
+                </p>
+              </FadeInUp>
             </div>
           </div>
 
@@ -283,19 +287,24 @@ const AIAgents = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             className="absolute top-1/2 right-0 -translate-y-1/2 h-[500px] z-0 pointer-events-none"
           />
           <div className="w-full md:max-w-[583px] relative z-10">
-            <h1 className="font-bold text-[40px] md:text-[48px] leading-[64px] text-white capitalize gap-4">
-              Need a custom solution?
-            </h1>
-            <p className="font-semibold text-base md:text-[20px] leading-[42px] mb-[60px]">
-              {' '}
-              AI-powered solutions not only enhance productivity but also
-              provide valuable insights that help you make informed business
-              decisions
-            </p>
-
-            <button className="bg-white py-4 px-10 rounded text-black">
-              Get Started
-            </button>
+            <FadeInUp delay={0.01}>
+              <h1 className="font-bold text-[40px] md:text-[48px] leading-[64px] text-white capitalize gap-4">
+                Need a custom solution?
+              </h1>
+            </FadeInUp>{' '}
+            <FadeInUp delay={0.215}>
+              <p className="font-semibold text-base md:text-[20px] leading-[42px] mb-[60px]">
+                {' '}
+                AI-powered solutions not only enhance productivity but also
+                provide valuable insights that help you make informed business
+                decisions
+              </p>
+            </FadeInUp>
+            <FadeInUp delay={0.42}>
+              <button className="bg-white py-4 px-10 rounded text-black">
+                Get Started
+              </button>
+            </FadeInUp>
           </div>
           <div className="w-full relative flex items-center justify-center">
             <img

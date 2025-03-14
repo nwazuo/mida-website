@@ -106,7 +106,7 @@ export default function FAQSection() {
   return (
     <div className="c-container pt-10 sm:pt-16 lg:pt-24 relative z-10">
       <LeftBorderContainer>
-        <FadeInUp>
+        <FadeInUp delay={0.01}>
           <div className="text-center">
             <h1 className="font-bold text-[40px] md:text-[48px] text-white">
               Frequently Asked Questions
