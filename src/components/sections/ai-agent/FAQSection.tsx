@@ -14,7 +14,6 @@ type Props = {
     faqs: typeof faqs
   }
 }
-
 const subfaqs = [
   {
     question: 'What is MIDA AI?',
@@ -105,15 +104,15 @@ export default function FAQSection() {
   }
 
   return (
-    <div className="c-container pt-10 sm:pt-16 lg:pt-24 my-[163px]">
+    <div className="c-container pt-10 sm:pt-16 lg:pt-24 relative z-10">
       <LeftBorderContainer>
         <FadeInUp>
           <div className="text-center">
-            <h1 className="text-white font-bold text-[48px]">
+            <h1 className="font-bold text-[40px] md:text-[48px] text-white">
               Frequently Asked Questions
             </h1>
-            <p className="text-white font-medium text-[20px] leading-[36px]">
-              Got Questions? We’ve Got Answers!
+            <p className="font-medium text-lg md:text-xl leading-[30px] md:leading-[36px] tracking-wide">
+              Got Questions? We've Got Answers!
             </p>
           </div>
         </FadeInUp>
@@ -127,7 +126,7 @@ export default function FAQSection() {
             <div
               key={i}
               className={cn(
-                'w-[688px] mx-auto py-4 lg:py-[14px] px-[32px] border rounded-[7px] border-[#EDEDED4D] bg-[#FFFFFF14]',
+                'w-full md:w-[688px] mx-auto py-4 lg:py-[14px] px-[32px] border rounded-[7px] border-[#EDEDED4D] bg-[#FFFFFF14]',
               )}
             >
               <FadeInUp
@@ -155,9 +154,7 @@ export default function FAQSection() {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                     >
-                      {/* <p className="lg:text-lg text-black lg:w-[80%]"> */}
                       {faq.answer}
-                      {/* </p> */}
                     </motion.div>
                   )}
                 </AnimatePresence>

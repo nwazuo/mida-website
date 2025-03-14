@@ -75,7 +75,7 @@ export default function Footer(props: Props) {
   )
 
   return (
-    <div className="bg-black pt-14 md:pt-16 lg:pt-32 pb-24 md:pb-28 lg:pb-40">
+    <div className="bg-black pt-14 md:pt-16 lg:pt-32 pb-24 md:pb-28 lg:pb-40 relative z-10">
       <div className="c-container">
         <FadeInUp>
           <h2 className="text-white text-3xl lg:text-5xl font-medium">
