@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 import { useState } from 'react'
 import { MdChevronLeft as MdChevron } from 'react-icons/md'
 
@@ -68,7 +67,7 @@ const subfaqs = [
         Book a free consultation with us today, and let’s map out your path to
         building, launching, and raising capital.{' '}
         <a
-          href="https://chatgpt.com/c/66f2ca45-b878-8003-b449-0dc481482996#"
+          href="https://calendly.com/midadigitals/30min?month=2025-03"
           target="_blank"
           style={{ textDecoration: 'underline' }}
         >
