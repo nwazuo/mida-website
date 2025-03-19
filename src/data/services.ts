@@ -19,6 +19,16 @@ const services = [
     summary:
       'MIDA, an innovative brand. We are fully immersed in the development and design of tokens, NFT marketplaces, Dapps and Dexes to meet the demands of our clients who are full scale or transiting to blockchain.',
   },
+  {
+    title: 'MVP Development',
+    summary:
+      'We build functional, lean Minimum Viable Products (MVPs) that showcase your startup’s core value. Whether you need a working prototype or a streamlined web-based version, we create enough to validate your idea, attract investors, and gain early users. Pich Deck, Dataroom, Web-based MVPs, Functional prototypes, User flow and experience design, Market validation tools',
+  },
+  {
+    title: 'AI Agents',
+    summary:
+      'Our AI-driven solutions help busy professionals automate tasks, stay organized, and scale their side businesses efficiently. We streamline goal-setting, task management, and business processes by integrating AI with no-code tools. AI-powered task automation, AI-driven progress tracking, AI-integrated workflow automation, Custom AI solutions',
+  },
 ]
 
 export default services

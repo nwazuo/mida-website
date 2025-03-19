@@ -17,73 +17,63 @@ type Props = {
 
 const subfaqs = [
   {
-    question: 'What does your web development agency specialize in?',
-    answer: (
-      <>
-        Midadigitals specializes in Digital strategy, Web design, Web
-        development and Blockchain across different{' '}
-        <Link
-          style={{ textDecoration: 'underline' }}
-          href="/services#industries"
-        >
-          industries
-        </Link>
-        . Overall, we ensure that your idea is executed in an excellent manner.
-      </>
-    ),
-  },
-  {
-    question: 'What makes Mida different from other web development agencies?',
+    question: 'What is an MVP, and why do I need one?',
     answer:
-      'We care deeply for our customers and ensure that their goal is achieved through alterations to suit their initial idea.',
+      'An MVP (Minimum Viable Product) is a simplified version of your product with just enough features to test its value, attract early adopters, and secure investment. Instead of waiting for a perfect product, an MVP lets you launch, learn, and improve based on real feedback.',
   },
   {
-    question: 'How do you handle project management for web development?',
-    answer: (
-      <>
-        Yes, we do. View our Service{' '}
-        <Link
-          style={{ textDecoration: 'underline' }}
-          href="/services#service-package"
-        >
-          Packages
-        </Link>
-      </>
-    ),
+    question: 'What’s included in MIDA’s MVP development services?',
+    answer:
+      'We build investor-ready MVPs that include functional web prototypes, UX/UI design, user flows, and integrations that align with your business goals. Our focus is on creating just enough to get you traction and funding.',
   },
   {
-    question: 'What is your process for creating a new website?',
+    question: 'How can AI Agents help my business?',
+    answer:
+      'AI Agents can automate customer service, data processing, lead generation, and various business tasks, helping you scale without hiring more staff. We customize AI tools to fit your specific needs.',
+  },
+  {
+    question: 'What industries do you develop MVPs for?',
+    answer:
+      'We work across multiple industries, including fintech, e-commerce, education, logistics, and AI-driven startups.',
+  },
+  {
+    question: 'Do I need a pitch deck to raise funding?',
+    answer:
+      'Yes! A strong pitch deck is essential for attracting investors. It highlights your problem, solution, business model, traction, and growth potential in a compelling way.',
+  },
+  {
+    question: 'What is a data room, and why is it important?',
+    answer:
+      'A data room is a secure space where investors can access key business documents like financials, market research, and company information. Having a well-structured data room builds investor trust and speeds up fundraising.',
+  },
+  {
+    question: 'What kind of websites do you build?',
+    answer:
+      'We specialize in business websites, startup landing pages, and fundraising-focused sites that help founders showcase their products and attract investors.',
+  },
+  {
+    question: 'Can you redesign my existing website?',
+    answer:
+      'Absolutely! We offer website audits, UI/UX improvements, and full-scale redesigns to optimize your online presence.',
+  },
+  {
+    question: 'Can AI Agents be customized for my specific business needs?',
+    answer:
+      'Yes! Our AI Agents are fully tailored to meet your business needs, whether it’s automating lead generation, managing workflows, or streamlining customer interactions.',
+  },
+  {
+    question: 'How do I get started?',
     answer: (
       <>
-        We start with filling in this{' '}
+        Book a free consultation with us today, and let’s map out your path to
+        building, launching, and raising capital.{' '}
         <a
-          href="/contact"
+          href="https://chatgpt.com/c/66f2ca45-b878-8003-b449-0dc481482996#"
           target="_blank"
-          style={{
-            textDecoration: 'underline',
-          }}
-        >
-          form
-        </a>
-      </>
-    ),
-  },
-  {
-    question: 'How long does it take to deliver a new website?',
-    answer: 'It depends on your deliverables.',
-  },
-  {
-    question: 'What is your process for updating an existing website?',
-    answer: (
-      <>
-        This depends on your{' '}
-        <Link
           style={{ textDecoration: 'underline' }}
-          href="/services#service-package"
         >
-          Service Package
-        </Link>{' '}
-        on the established contract.
+          🔗 Schedule a Call
+        </a>
       </>
     ),
   },

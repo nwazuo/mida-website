@@ -224,7 +224,7 @@ const About = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             Our work process remains the same within each service. MIDA seeks to
             achieve the defined objective – make the delivery bring the maximum
             benefit to the customer. At this moment our process consists of 12
-            simple steps to familiarise with the project and deliver
+            simple steps to familiarize with the project and deliver
             excellently.
           </p>
         </div>

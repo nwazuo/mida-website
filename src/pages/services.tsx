@@ -254,7 +254,7 @@ const SERVICE_DATA = [
   {
     mainImg: '/images/services/seeder.png',
     iconImg: '/images/services/seeder-icon.png',
-    title: 'Seeder',
+    title: 'MVP Development',
     paragraph:
       'This is the beginning or discovery stage of a brand. Our team could add any services to the pack,this  helps us fit our clients’ expectations and make the best proposal with recommendations. At this stage, the team and its services could be flexible, so we try to communicate with our client and team in the closest way. This is the only service that comes with branding.',
     bullet: [
