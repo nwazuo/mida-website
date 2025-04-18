@@ -1,4 +1,10 @@
 interface CTA {
-  text: string;
+  text: string
   link: string
+}
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
 }
